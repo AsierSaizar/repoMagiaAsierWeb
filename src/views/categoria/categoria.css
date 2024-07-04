@@ -121,3 +121,16 @@ form {
 .search-buttonFiltro i {
     margin-right: 5px; /* Espacio entre el icono y el texto */
 }
+
+.crearNuevoJuego{
+    font-size: 200px;
+    margin: 5%;
+    display:flex;
+    justify-content: center;
+    text-decoration: none;
+    color: #ffffff;
+}
+.crearNuevoJuego:hover{
+    text-decoration: none;
+    color: rgb(255, 240, 104);
+}

@@ -115,7 +115,11 @@ $_SESSION["categoria"] = $categoria;
     } else {
         echo "Ez dago irizpide hauek betetzen dituet produkturik.";
     }
-
+    ?>
+    <a href="<?= HREF_VIEWS_DIR ?>/jokuaSortu/jokuaSortu.php" class="crearNuevoJuego">
+        +
+    </a>
+    <?php
     $conn->close();
     ?>
 </div>
