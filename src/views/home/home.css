@@ -1,0 +1,20 @@
+.categorias{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.categoriasNameH3{
+    font-size: 35px;
+    color: white;
+}
+.linkCategorias:hover{
+    text-decoration: none;
+}
+.categoriaDiv, .imagenCategoria{
+    border-radius: 10px; /* Bordes redondeados */
+}
+.categoriaDiv:hover {
+    transform: scale(1.05); /* Efecto de agrandar al pasar el cursor */
+}
+.categoriaDiv{
+    transition: transform 0.2s; /* Animación para el hover */
+}

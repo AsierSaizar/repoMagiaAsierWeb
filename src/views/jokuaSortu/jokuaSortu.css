@@ -1,0 +1,56 @@
+.containerAñadirJuego{
+    width: 60%;
+    font-size: 25px;
+    border: 2px solid rgb(255, 240, 104);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: rgb(255, 240, 104) 0px 5px 15px;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+.form-control {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+#submit-button {
+    padding: 10px 15px;
+    background-color:rgb(255, 240, 104);
+    color: rgb(0, 0, 0);
+    border: 0px;
+    border-radius: 10px;
+    
+    transition: transform 0.3s ease; /* Añade una transición suave */
+}
+#submit-button:hover {
+    
+    transform: scale(1.1); /* Aumenta el tamaño a 110% */
+
+}
+.btnSubmitDelete {
+    background-color: rgb(255, 0, 0);
+    color: white;
+    border: 0px;
+    border-radius: 4px;
+    padding: 10px;
+    transition: transform 0.3s ease; /* Añade una transición suave */
+}
+
+.btnSubmitDelete:hover {
+    transform: scale(1.1); /* Aumenta el tamaño a 110% */
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: rgb(0, 0, 0); /* Color del texto seleccionado */
+}
+.select2-container--default .select2-results__option {
+    color: black; /* Color del texto de las opciones */
+}

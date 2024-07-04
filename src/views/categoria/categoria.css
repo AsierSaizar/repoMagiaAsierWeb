@@ -1,0 +1,123 @@
+.containerJuegos{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+
+.trucosName:hover{
+    color: rgb(255, 240, 104);
+    text-decoration: none;
+}
+.juegosDiv {
+    width: 200px; /* Ajusta el ancho según sea necesario */
+    height: 200px; /* Ajusta la altura según sea necesario */
+    border: 1px solid #ccc; /* Borde para visualización */
+    margin: 10px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background-color: #686868; /* Color de fondo */
+    transition: transform 0.2s; /* Animación para el hover */
+}
+.juegosDiv:hover {
+    transform: scale(1.05); /* Efecto de agrandar al pasar el cursor */
+    text-decoration: none;
+}
+.trucosSubCat{
+    color: rgb(223, 223, 223);
+}
+.trucosName {
+    font-size: 33px; /* Ajusta el tamaño de la fuente según sea necesario */
+    text-align: center;
+    text-decoration: none; /* Sin subrayado */
+    color: #333; /* Color del texto */
+    display: block;
+    width: 100%;
+}
+.marco1 {
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra para darle profundidad */
+}
+.trucosName{
+    color: white;
+}
+
+.iconButton {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+    margin: 0 5px; /* Espaciado entre los botones */
+}
+
+.iconButton:hover {
+    color: rgb(255, 240, 104);
+}
+.listButton:hover {
+    color: seagreen;
+}
+.editButton:hover{
+    color: royalblue;
+}
+.buttons {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.starButtonBtnFab{
+    color: rgb(255, 240, 104);
+}
+.listButtonBtnList{
+    color: seagreen;
+}
+
+
+/* FOPRMULARIO FILTROOOO */
+/* Estilos generales para el formulario */
+form {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    gap: 10px; /* Espacio entre elementos */
+    background-color: #969696; /* Fondo del formulario */
+    padding: 10px; /* Espaciado interno del formulario */
+    border-radius: 5px; /* Bordes redondeados */
+    border: 2px solid rgb(255, 240, 104);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra del formulario */
+}
+
+/* Estilos para el select */
+#subcatFiltro {
+    padding: 8px; /* Espaciado interno del select */
+    border: 1px solid #ccc; /* Borde del select */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente */
+    background-color: #fff; /* Fondo del select */
+    color: #333; /* Color del texto */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+}
+
+/* Estilos para el botón */
+.search-buttonFiltro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px; /* Espaciado interno del botón */
+    background-color: transparent; /* Color de fondo del botón */
+    border: none; /* Sin borde */
+    border-radius: 25%; /* Bordes redondeados */
+    color: #ffffff; /* Color del texto */
+    font-size: 16px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: background-color 0.3s; /* Transición para el efecto hover */
+}
+
+.search-buttonFiltro:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el cursor */
+}
+
+/* Estilos para el icono dentro del botón */
+.search-buttonFiltro i {
+    margin-right: 5px; /* Espacio entre el icono y el texto */
+}

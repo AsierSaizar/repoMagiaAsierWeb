@@ -1,0 +1,150 @@
+body{
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    color: white;
+}
+.carousel-item{
+    border: 2px solid transparent;
+    border-bottom-color: rgb(255, 240, 104);
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: 1px solid;
+    border-color: transparent;
+    border-bottom-color: rgb(255, 240, 104);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.usuarioName{
+    color: white;
+    background-color: transparent;
+    border: 0px;
+    font-size: 30px;
+}
+.usuarioName:hover{
+    color: rgb(255, 240, 104);
+    text-decoration: none;
+}
+.clasSub:hover{
+    text-decoration: underline;
+}
+.clasSub{
+    text-decoration: underline;
+    font-size: 33px;
+}
+.menu-icon i {
+    font-size: 24px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 15px;
+    padding-left: 50px;
+}
+
+.tagline span {
+    font-size: 30px;
+}
+
+.usuarioNameDiv{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding-left: 30%;
+    gap: 1em;
+}
+
+.btn-primary{
+    background-color: transparent;
+    border-color: transparent;
+    
+}
+.btn-close{
+    color: white;
+}
+.btn-primary:hover, 
+.btn-primary:focus, 
+.btn-primary:active, 
+.btn-primary:focus:active, 
+.btn-primary:focus:hover, 
+.btn-primary.active, 
+.btn-primary.show, 
+.btn-primary:focus-visible, 
+.btn-primary:focus-visible:active, 
+.btn-primary:focus-visible:hover {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important; /* Elimina el efecto de sombra en el enfoque */
+}
+.btn-primary:hover{
+    color: #aaaaaa;
+    
+}
+.fa-bars, .fa-magnifying-glass{
+    font-size: xx-large;
+}
+.offcanvas-body, .offcanvas-header{
+    background-color: #6d6d6d;
+}
+.linkakSideBar{
+    color: white;
+    font-size: 30px;
+}
+.linkakSideBar:hover{
+    font-size: 32px;
+    color: white;
+    text-decoration: none;
+}
+
+
+
+/* FOOTER AAAAAAAAAAAAAAAAAAA */
+
+.footer {
+    background-color: #343a40;
+    color: white;
+}
+
+.footer a {
+    color: #ffc107;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer .fas {
+    margin-right: 8px;
+}
+
+
+/* MARKOA */
+
+.marco1{
+    height: 300px;
+    width: 80%;
+    border: 1px solid;
+    border-color: rgb(233, 233, 233);
+    text-decoration: none;
+}
+
+.marco1:hover{
+    border: 3px solid rgb(255, 240, 104);
+}
+

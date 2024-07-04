@@ -1,0 +1,64 @@
+/* Estilos para la tabla */
+.containerGordeta{
+    
+    padding: 30px;
+}
+.table-container {
+    width: 100%;
+    overflow-x: auto; /* Permitir desplazamiento horizontal */
+    margin: 20px auto; /* Margen exterior */
+    border: 1px solid #ffffff; /* Borde blanco */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    background-color: #333333; /* Fondo gris oscuro */
+    color: #ffffff; /* Texto blanco */
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse; /* Colapsar los bordes de la tabla */
+    background-color: #333333; /* Fondo gris oscuro */
+    color: #ffffff; /* Texto blanco */
+}
+
+.styled-table th, .styled-table td {
+    padding: 12px 15px; /* Padding interno */
+    text-align: left;
+    border-bottom: 1px solid #ffffff; /* Borde inferior blanco */
+}
+
+.styled-table th {
+    background-color: rgb(255, 240, 104); /* Color de fondo verde para encabezados */
+    font-weight: bold; /* Negrita */
+    color: #535353;
+}
+
+.styled-table td {
+    background-color: #444444; /* Color de fondo gris oscuro */
+}
+
+.styled-table tr:nth-child(even) td {
+    background-color: #3c3c3c; /* Color de fondo gris más oscuro para filas pares */
+}
+
+.styled-table tr:hover {
+    background-color: #555555; /* Color de fondo gris al pasar el ratón */
+}
+
+.delete-button {
+    background-color: #f44336; /* Color de fondo rojo para botón de eliminar */
+    color: #ffffff; /* Texto blanco */
+    border: none; /* Sin borde */
+    padding: 8px 12px; /* Padding interno */
+    cursor: pointer; /* Cursor de tipo puntero */
+    border-radius: 4px; /* Bordes redondeados */
+    transition: background-color 0.3s; /* Transición suave del color de fondo */
+}
+
+.delete-button:hover {
+    background-color: #d32f2f; /* Color de fondo rojo más oscuro al pasar el ratón */
+}
+
+.delete-button i {
+    margin-right: 5px; /* Margen a la derecha del icono */
+}
