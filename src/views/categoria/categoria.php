@@ -112,11 +112,9 @@ $_SESSION["categoria"] = $categoria;
             </center>
             <?php
         }
-    } else {
-        echo "Ez dago irizpide hauek betetzen dituet produkturik.";
     }
     ?>
-    <a href="<?= HREF_VIEWS_DIR ?>/jokuaSortu/jokuaSortu.php" class="crearNuevoJuego">
+    <a href="<?= HREF_VIEWS_DIR ?>/jokuaSortu/jokuaSortu.php?categoria=<?=$categoria?>" class="crearNuevoJuego">
         +
     </a>
     <?php
