@@ -16,7 +16,7 @@ $usuario = $_SESSION["usuario"];
     $conn = connection();
 
     // Obtener los registros del historial
-    $result = $conn->query("SELECT h.idjuegos, h.categoria, h.juegosName, deleted_at, c.categoriasName FROM sql7716506.historial_juegos h JOIN categorias c ON h.categoria = c.idcategorias WHERE $usuario=1;");
+    $result = $conn->query("SELECT h.idjuegos, h.categoria, h.juegosName, deleted_at, c.categoriasName FROM historial_juegos h JOIN categorias c ON h.categoria = c.idcategorias WHERE $usuario=1;");
     ?>
 
     <table class="historial-table">
@@ -26,14 +26,16 @@ $usuario = $_SESSION["usuario"];
             <th>Nombre del Juego</th>
             <th>Fecha de Eliminación</th>
             <th>Acción</th>
+            <th>Borrar del historial</th>
         </tr>
         <?php while ($row = $result->fetch_assoc()): ?>
             <tr>
                 <td><?= $row['idjuegos']; ?></td>
-                <td><?= $row['juegosName']; ?></td>
                 <td><?= $row['categoriasName']; ?></td>
+                <td><?= $row['juegosName']; ?></td>
                 <td><?= $row['deleted_at']; ?></td>
                 <td><button id="<?= $row['idjuegos']; ?>" type="submit" class="restore-button">Restaurar</button></td>
+                <td><button id="<?= $row['idjuegos']; ?>" type="submit" class="deleteHis-button">Borrar</button></td>
             </tr>
         <?php endwhile; ?>
     </table>
