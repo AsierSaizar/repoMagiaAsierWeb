@@ -115,7 +115,7 @@ $_SESSION["categoria"] = $categoria;
     }
     ?>
     <a href="<?= HREF_VIEWS_DIR ?>/jokuaSortu/jokuaSortu.php?categoria=<?=$categoria?>" class="crearNuevoJuego">
-        +
+    <i class="fa-solid fa-plus"></i>
     </a>
     <?php
     $conn->close();
