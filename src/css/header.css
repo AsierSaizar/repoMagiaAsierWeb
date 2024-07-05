@@ -103,10 +103,11 @@ body{
 .linkakSideBar{
     color: white;
     font-size: 30px;
+    transition: font-size 0.1s;
 }
 .linkakSideBar:hover{
     font-size: 32px;
-    color: white;
+    color: rgb(255, 240, 104);
     text-decoration: none;
 }
 
@@ -125,8 +126,8 @@ body{
 }
 
 .footer a:hover {
-    color: #fff;
-    text-decoration: underline;
+    color: rgb(255, 240, 104);
+    text-decoration: none;
 }
 
 .footer .fas {

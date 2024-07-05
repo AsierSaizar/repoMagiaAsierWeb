@@ -39,8 +39,26 @@ require_once ("../../required/carrusel.php");
             } else {
                 echo "Ez dago irizpide hauek betetzen dituet produkturik.";
             } ?>
+
+
+            <div class="categoriaDiv">
+                <a class="linkCategorias"
+                    href="<?= HREF_SRC_DIR ?>/views/gordeta/gordeta.php?gordeta=1">
+                    <div class="imagenCategoria marco1 categoriaIconos Star"><i class="fas fa-star"></i></div>
+                    <h3 class="categoriasNameH3">Favoritos <i class="fas fa-star"></i></h3>
+                </a>
+
+            </div>
+            <div class="categoriaDiv">
+                <a class="linkCategorias"
+                    href="<?= HREF_SRC_DIR ?>/views/gordeta/gordeta.php?gordeta=2">
+                    <div class="imagenCategoria marco1 categoriaIconos List"><i class="fas fa-list"></i></div>
+                    <h3 class="categoriasNameH3">Lista de Guardados <i class="fas fa-list"></i></h3>
+                </a>
+
+            </div>
         </div>
-<br><br>
+        <br><br>
 
     </center>
     <?php
