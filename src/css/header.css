@@ -149,3 +149,11 @@ body{
     border: 3px solid rgb(255, 240, 104);
 }
 
+.marco2{
+    border: 1px solid;
+    border-color: rgb(233, 233, 233);
+    text-decoration: none;
+}
+.marco2:hover{
+    border: 3px solid rgb(255, 240, 104);
+}

@@ -18,6 +18,13 @@ require_once ("../../required/carrusel.php");
     $result = $conn->query($sql);
     ?>
     <center>
+        <div class="todosJuegos">
+            <a class="linkCategorias" href="<?= HREF_SRC_DIR?>/views/categoria/categoria.php?categoria=10">
+                <div class=" marco2 categoriaIconos "><h3 class="categoriasNameH3">Todos Los Juegos</h3></div>
+                
+            </a>
+        </div>
+        <br><br>
         <div class="categorias">
             <?php
             if ($result->num_rows > 0) {
