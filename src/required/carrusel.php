@@ -3,10 +3,14 @@
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
     </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="../../../public/carrusel1.jpg" class="d-block w-100" alt="Imagen 1">
+            <img src="../../../public/carrusel4.jpg" class="d-block w-100" alt="Imagen 1">
+        </div>
+        <div class="carousel-item">
+            <img src="../../../public/carrusel1.jpg" class="d-block w-100" alt="Imagen 5">
         </div>
         <div class="carousel-item">
             <img src="../../../public/carrusel2.jpg" class="d-block w-100" alt="Imagen 2">

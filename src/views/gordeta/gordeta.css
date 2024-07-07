@@ -62,3 +62,56 @@
 .delete-button i {
     margin-right: 5px; /* Margen a la derecha del icono */
 }
+
+
+
+
+/* FOPRMULARIO FILTROOOO */
+/* Estilos generales para el formulario */
+form {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    gap: 10px; /* Espacio entre elementos */
+    background-color: #969696; /* Fondo del formulario */
+    padding: 10px; /* Espaciado interno del formulario */
+    border-radius: 5px; /* Bordes redondeados */
+    border: 2px solid rgb(255, 240, 104);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra del formulario */
+}
+
+/* Estilos para el select */
+#catFiltro {
+    padding: 8px; /* Espaciado interno del select */
+    border: 1px solid #ccc; /* Borde del select */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente */
+    background-color: #fff; /* Fondo del select */
+    color: #333; /* Color del texto */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+}
+
+/* Estilos para el botón */
+.search-buttonFiltro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px; /* Espaciado interno del botón */
+    background-color: transparent; /* Color de fondo del botón */
+    border: none; /* Sin borde */
+    border-radius: 25%; /* Bordes redondeados */
+    color: #ffffff; /* Color del texto */
+    font-size: 16px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: font-size 0.1s; /* Transición para el efecto hover */
+}
+
+.search-buttonFiltro:hover {
+    font-size: 20px;
+    color: rgb(255, 240, 104);
+}
+
+/* Estilos para el icono dentro del botón */
+.search-buttonFiltro i {
+    margin-right: 5px; /* Espacio entre el icono y el texto */
+}

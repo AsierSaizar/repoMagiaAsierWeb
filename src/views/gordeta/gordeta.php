@@ -2,8 +2,13 @@
 <?php
 
 require_once ("../../required/head.php");
+//CATEGORIAK MANEJATZEKO ETA EZ KENTZEKO FILTROAKIN ///////////
 
-$gordeta = isset($_GET["gordeta"]) ? $_GET["gordeta"] : 1;
+
+$gordetaSESSION = isset($_SESSION["gordeta"]) ? $_SESSION["gordeta"] : 1;
+$gordeta = isset($_GET["gordeta"]) ? $_GET["gordeta"] : $gordetaSESSION;
+$_SESSION["gordeta"] = $gordeta;
+
 $existe = true;
 if ($gordeta == 1) {
     $title = "Favoritos";
@@ -20,6 +25,45 @@ if ($existe) {
     <br>
     <center>
         <h1><?= $title ?></h1>
+        <form method="get">
+            <select name="catFiltro" id="catFiltro">
+                <?php
+                require_once (APP_DIR . "/src/required/functions.php");
+                $conn = connection();
+                $usuario = $_SESSION["usuario"];
+                if (isset($_GET["catFiltro"])) {
+                    $catFiltro = $_GET["catFiltro"];
+                } else {
+                    $catFiltro = "todos";
+                }
+
+                $sql = "SELECT DISTINCT categorias.categoriasName AS categoria_nombre FROM juegos JOIN  categorias ON juegos.categoria = categorias.idcategorias WHERE 
+            juegos.idjuegos IN (
+                SELECT idJokua 
+                FROM $tablaDB 
+                WHERE $usuario = 1
+            );";
+
+
+                $result = $conn->query($sql);
+                ?>
+                <option value="todos">Todos</option>
+                <?php
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        ?>
+                        <option value="<?= $row['categoria_nombre'] ?>"><?= $row['categoria_nombre'] ?></option>
+                        <?php
+                    }
+                } else {
+                    echo "Ez dago irizpide hauek betetzen dituet produkturik.";
+                }
+                ?>
+            </select>
+            <button type="submit" class="search-buttonFiltro">
+                <i class='fa-solid fa-filter'></i>
+            </button>
+        </form>
     </center><br><br>
 
     <class="containerGordeta">
@@ -27,14 +71,16 @@ if ($existe) {
         require_once (APP_DIR . "/src/required/functions.php");
         $conn = connection();
         $usuario = $_SESSION["usuario"];
-
-        $sql = "SELECT juegos.*, categorias.categoriasName AS categoria_nombre FROM juegos JOIN  categorias ON juegos.categoria = categorias.idcategorias WHERE 
+        if ($catFiltro == "todos") {
+            $sql = "SELECT juegos.*, categorias.categoriasName AS categoria_nombre FROM juegos JOIN  categorias ON juegos.categoria = categorias.idcategorias WHERE 
         juegos.idjuegos IN (
             SELECT idJokua 
             FROM $tablaDB 
             WHERE $usuario = 1
-        );
-        ";
+        );";
+        } else {
+            $sql = "SELECT juegos.*, categorias.categoriasName AS categoria_nombre FROM juegos JOIN  categorias ON juegos.categoria = categorias.idcategorias WHERE juegos.idjuegos IN (SELECT idJokua FROM $tablaDB WHERE $usuario = 1)and categoria in ( SELECT idcategorias FROM categorias WHERE categoriasName = '$catFiltro')";
+        }
 
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
