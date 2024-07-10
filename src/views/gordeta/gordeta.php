@@ -77,9 +77,13 @@ if ($existe) {
             SELECT idJokua 
             FROM $tablaDB 
             WHERE $usuario = 1
+        ) and juegos.idjuegos IN (
+            SELECT idjuegos 
+            FROM juegos
+            WHERE $usuario = 1
         );";
         } else {
-            $sql = "SELECT juegos.*, categorias.categoriasName AS categoria_nombre FROM juegos JOIN  categorias ON juegos.categoria = categorias.idcategorias WHERE juegos.idjuegos IN (SELECT idJokua FROM $tablaDB WHERE $usuario = 1)and categoria in ( SELECT idcategorias FROM categorias WHERE categoriasName = '$catFiltro')";
+            $sql = "SELECT juegos.*, categorias.categoriasName AS categoria_nombre FROM juegos JOIN  categorias ON juegos.categoria = categorias.idcategorias WHERE juegos.idjuegos IN (SELECT idJokua FROM $tablaDB WHERE $usuario = 1)and categoria in ( SELECT idcategorias FROM categorias WHERE categoriasName = '$catFiltro') and juegos.idjuegos IN (SELECT idjuegos FROM juegos WHERE $usuario = 1)";
         }
 
         $result = $conn->query($sql);

@@ -95,7 +95,7 @@ if ($categoria == 10) {
     }
 
     //Listakok koloreztatzen
-    $sqllist = "SELECT idJokua FROM listanGordeta Where $usuario = 1;";
+    $sqllist = "SELECT idJokua FROM listangordeta Where $usuario = 1;";
     $resultlist = $conn->query($sqllist);
 
     // Almacenar los IDs de juegos favoritos en un array
