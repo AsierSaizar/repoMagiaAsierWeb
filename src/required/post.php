@@ -209,7 +209,7 @@ if (isset($_POST["action"])) {
         }
         case "restaurarJuego": {
             $idjuegos = $_POST["jokuaId"];
-            
+
             require_once ("functions.php");
 
             $conn = connection();
@@ -246,6 +246,24 @@ if (isset($_POST["action"])) {
             } else {
                 echo "Juego no encontrado en el historial";
             }
+
+            $conn->close();
+        }
+        case "BorrarJuegoHistorial": {
+            $idjuegos = $_POST["jokuaId"];
+
+            require_once ("functions.php");
+
+            $conn = connection();
+
+
+            
+
+            // Elimina el registro de la tabla de historial
+            $conn->query("DELETE FROM historial_juegos WHERE idjuegos = $idjuegos");
+            echo "Juego eliminado con exito";
+
+
 
             $conn->close();
         }

@@ -18,3 +18,27 @@
 .categoriaDiv{
     transition: transform 0.2s; /* Animación para el hover */
 }
+
+.categoriaIconos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 175px;
+    color: white;
+    height: 8%;
+    border-radius: 15px;
+    background-color: #686868; /* Color de fondo */
+    transition: color 1s; /* Animación para el hover */
+}
+.categoriaIconos:hover{
+    background-color: #969696; /* Color de fondo */
+    transition: transform 0.2s; /* Animación para el hover */
+}
+.Star:hover{
+    color: rgb(255, 240, 104);
+
+}
+.List:hover{
+    color: seagreen;
+
+}

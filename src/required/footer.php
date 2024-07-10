@@ -13,6 +13,7 @@
                     <li><a href="<?= HREF_SRC_DIR ?>/views/gordeta/gordeta.php?gordeta=1" class="text-white">Favoritos<i class="fas fa-star"></i></a></li>
                     <li><a href="<?= HREF_SRC_DIR ?>/views/gordeta/gordeta.php?gordeta=2" class="text-white">Lista de Guardados<i class="fas fa-list"></i></a></li>
                     <li><a href="<?= HREF_SRC_DIR ?>/views/jokuaSortu/jokuaSortu.php" class="text-white">Añadir Juego <i class="fa-solid fa-plus"></i></i></a></li>
+                    <li><a href="<?= HREF_SRC_DIR ?>/views/historialJuegos/historialJuegos.php" class="text-white">Historial Juegos <i class="fa-solid fa-history"></i></i></a></li>
                 </ul>
             </div>
             <div class="col-md-4 mb-3">

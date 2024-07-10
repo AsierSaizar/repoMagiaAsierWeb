@@ -19,7 +19,9 @@ if (isset($_GET["jokua"])) {
     $rowJuego = $result->fetch_assoc();
 
 }
-
+if (isset($_GET["categoria"])) {
+    $categoriaBaseSortzeko = $_GET["categoria"];
+}
 ?>
 <br>
 <center>
@@ -80,16 +82,36 @@ if (isset($_GET["jokua"])) {
                 <select class="form-control CatOpt" name="categoria" id="categoria">
                     <?php
                     // Suponiendo que esta es tu variable
-                    $categoria = $rowJuego['categoria'];
+                    $categoria = isset($rowJuego['categoria']) ? $rowJuego['categoria'] : null;
+
+                    if (!isset($categoria) && isset($_GET["categoria"])) {
+                        $categoriaBaseSortzeko = $_GET["categoria"];
+                        switch ($categoriaBaseSortzeko) {
+                            case 'Cartomagia':
+                                $categoria = 1;
+                                break;
+                            case 'Numismagia':
+                                $categoria = 2;
+                                break;
+                            case 'Cuerdas':
+                                $categoria = 3;
+                                break;
+                            case 'Mentalismo':
+                                $categoria = 4;
+                                break;
+                            default:
+                                $categoria = null;
+                        }
+                    }
                     ?>
 
-                    <option class="CatOpt" value="1" <?php echo ($categoria == 1) ? "selected" : ""; ?>>Cartomagia
+                    <option class="CatOpt" value="1" <?= ($categoria == 1) ? "selected" : ""; ?>>Cartomagia
                     </option>
-                    <option class="CatOpt" value="2" <?php echo ($categoria == 2) ? "selected" : ""; ?>>Numismagia
+                    <option class="CatOpt" value="2" <?= ($categoria == 2) ? "selected" : ""; ?>>Numismagia
                     </option>
-                    <option class="CatOpt" value="3" <?php echo ($categoria == 3) ? "selected" : ""; ?>>Cuerdas
+                    <option class="CatOpt" value="3" <?= ($categoria == 3) ? "selected" : ""; ?>>Cuerdas
                     </option>
-                    <option class="CatOpt" value="4" <?php echo ($categoria == 4) ? "selected" : ""; ?>>Mentalismo
+                    <option class="CatOpt" value="4" <?= ($categoria == 4) ? "selected" : ""; ?>>Mentalismo
                     </option>
                 </select>
             </div>
@@ -212,8 +234,13 @@ if (isset($_GET["jokua"])) {
                     $asier = ($rowJuego['Asier'] == 1) ? "checked" : "";
                     $benat = ($rowJuego['Benat'] == 1) ? "checked" : "";
                 } else {
-                    $asier = "";
-                    $benat = "";
+                    if ($usuario == "Asier") {
+                        $asier = "checked";
+                        $benat = "";
+                    } else {
+                        $benat = "checked";
+                        $asier = "";
+                    }
                 }
                 ?>
                 <form>

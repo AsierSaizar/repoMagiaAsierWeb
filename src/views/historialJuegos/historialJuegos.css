@@ -29,9 +29,20 @@ h1 {
 }
 
 
-
+.deleteHis-button{
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+.deleteHis-button:hover {
+    background-color: #ad0600;
+}
 .restore-button {
-    background-color: #e74c3c;
+    background-color: #3ce73c;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -41,5 +52,6 @@ h1 {
 }
 
 .restore-button:hover {
-    background-color: #c0392b;
+    background-color: #2c7900;
 }
+

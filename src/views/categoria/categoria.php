@@ -7,6 +7,12 @@ require_once ("../../required/head.php");
 $categoriaSESSION = isset($_SESSION["categoria"]) ? $_SESSION["categoria"] : "Cartomagia";
 $categoria = isset($_GET["categoria"]) ? $_GET["categoria"] : $categoriaSESSION;
 $_SESSION["categoria"] = $categoria;
+
+$todosJuegos = false;
+if ($categoria == 10) {
+    $categoria = "Todos Los Juegos";
+    $todosJuegos = true;
+}
 ?>
 <br>
 <center>
@@ -22,7 +28,13 @@ $_SESSION["categoria"] = $categoria;
             } else {
                 $subcatFiltro = "todos";
             }
-            $sql = "SELECT DISTINCT subcategoria FROM juegos WHERE categoria = (SELECT idcategorias FROM categorias WHERE categoriasName = '$categoria') and $usuario = 1;";
+
+            if ($todosJuegos) {
+                $sql = "SELECT DISTINCT subcategoria FROM juegos WHERE $usuario = 1;";
+            } else {
+                $sql = "SELECT DISTINCT subcategoria FROM juegos WHERE categoria = (SELECT idcategorias FROM categorias WHERE categoriasName = '$categoria') and $usuario = 1;";
+            }
+
             $result = $conn->query($sql);
             ?>
             <option value="todos">Todos</option>
@@ -49,11 +61,22 @@ $_SESSION["categoria"] = $categoria;
 
     $conn = connection();
     $usuario = $_SESSION["usuario"];
-    if ($subcatFiltro == "todos") {
-        $sql = "SELECT j.* FROM juegos j JOIN categorias c ON j.categoria = c.idcategorias WHERE c.categoriasName = '$categoria' and $usuario = 1;";
+
+    if ($todosJuegos) {
+        
+        if ($subcatFiltro == "todos") {
+            $sql = "SELECT * FROM juegos WHERE $usuario = 1 order by subcategoria;";
+        } else {
+            $sql = "SELECT j.* FROM juegos j JOIN categorias c ON j.categoria = c.idcategorias WHERE subcategoria='$subcatFiltro' and $usuario = 1 ;";
+        }
     } else {
-        $sql = "SELECT j.* FROM juegos j JOIN categorias c ON j.categoria = c.idcategorias WHERE c.categoriasName = '$categoria' and subcategoria='$subcatFiltro' and $usuario = 1 ;";
+        if ($subcatFiltro == "todos") {
+            $sql = "SELECT j.* FROM juegos j JOIN categorias c ON j.categoria = c.idcategorias WHERE c.categoriasName = '$categoria' and $usuario = 1;";
+        } else {
+            $sql = "SELECT j.* FROM juegos j JOIN categorias c ON j.categoria = c.idcategorias WHERE c.categoriasName = '$categoria' and subcategoria='$subcatFiltro' and $usuario = 1 ;";
+        }
     }
+
 
 
     $result = $conn->query($sql);
@@ -72,7 +95,7 @@ $_SESSION["categoria"] = $categoria;
     }
 
     //Listakok koloreztatzen
-    $sqllist = "SELECT idJokua FROM listanGordeta Where $usuario = 1;";
+    $sqllist = "SELECT idJokua FROM listangordeta Where $usuario = 1;";
     $resultlist = $conn->query($sqllist);
 
     // Almacenar los IDs de juegos favoritos en un array
@@ -112,10 +135,12 @@ $_SESSION["categoria"] = $categoria;
             </center>
             <?php
         }
-    } else {
-        echo "Ez dago irizpide hauek betetzen dituet produkturik.";
     }
-
+    ?>
+    <a href="<?= HREF_VIEWS_DIR ?>/jokuaSortu/jokuaSortu.php?categoria=<?= $categoria ?>" class="crearNuevoJuego">
+        <i class="fa-solid fa-plus"></i>
+    </a>
+    <?php
     $conn->close();
     ?>
 </div>

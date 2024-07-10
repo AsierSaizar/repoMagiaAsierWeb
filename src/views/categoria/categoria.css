@@ -110,14 +110,31 @@ form {
     color: #ffffff; /* Color del texto */
     font-size: 16px; /* Tamaño de fuente */
     cursor: pointer; /* Cambia el cursor al pasar por encima */
-    transition: background-color 0.3s; /* Transición para el efecto hover */
+    transition: font-size 0.1s; /* Transición para el efecto hover */
 }
 
 .search-buttonFiltro:hover {
-    background-color: #0056b3; /* Color de fondo al pasar el cursor */
+    font-size: 20px;
+    color: rgb(255, 240, 104);
 }
 
 /* Estilos para el icono dentro del botón */
 .search-buttonFiltro i {
     margin-right: 5px; /* Espacio entre el icono y el texto */
+}
+
+.crearNuevoJuego{
+    font-size: 175px;
+    margin: 5%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #ffffff;
+    transition: font-size 0.3s;
+}
+.crearNuevoJuego:hover{
+    font-size: 200px;
+    text-decoration: none;
+    color: rgb(255, 240, 104);
 }
