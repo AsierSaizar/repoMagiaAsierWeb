@@ -15,7 +15,7 @@ if ($gordeta == 1) {
     $tablaDB = "faboritok";
 } else if ($gordeta == 2) {
     $title = "Lista de Guardados";
-    $tablaDB = "listanGordeta";
+    $tablaDB = "listangordeta";
 } else {
     $existe = false;
 }
