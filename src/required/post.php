@@ -41,14 +41,14 @@ if (isset($_POST["action"])) {
             $conn = connection();
 
             // Verifica si ya existe una fila con el mismo idJokua
-            $resultado = $conn->query("SELECT * FROM listanGordeta WHERE idJokua = $jokuaId");
+            $resultado = $conn->query("SELECT * FROM listangordeta WHERE idJokua = $jokuaId");
 
             if ($resultado->num_rows > 0) {
                 // Si existe, actualiza la columna del usuario correspondiente
-                $conn->query("UPDATE listanGordeta SET $usuario = 1 WHERE idJokua = $jokuaId");
+                $conn->query("UPDATE listangordeta SET $usuario = 1 WHERE idJokua = $jokuaId");
             } else {
                 // Si no existe, inserta una nueva fila con los valores
-                $conn->query("INSERT INTO listanGordeta (idJokua, $usuario) VALUES ($jokuaId, 1)");
+                $conn->query("INSERT INTO listangordeta (idJokua, $usuario) VALUES ($jokuaId, 1)");
             }
             $conn->close();
             echo "Juego añadido a Lista de Guardados";
