@@ -12,9 +12,9 @@
         <div class="carousel-item">
             <img src="../../../public/carrusel1.jpg" class="d-block w-100" alt="Imagen 5">
         </div>
-        <div class="carousel-item">
+        <a class="carousel-item" href="<?= HREF_SRC_DIR ?>/views/mnemonica/mnemonica.php">
             <img src="../../../public/carrusel2.jpg" class="d-block w-100" alt="Imagen 2">
-        </div>
+        </a>
         <div class="carousel-item">
             <img src="../../../public/carrusel3.jpg" class="d-block w-100" alt="Imagen 3">
         </div>
