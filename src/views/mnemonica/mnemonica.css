@@ -1,0 +1,35 @@
+.containerMnemonica {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.mnemonica {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 6 columnas */
+    gap: 30px; /* Espacio entre las cartas */
+    max-width: 100%; /* Asegura que el contenedor no exceda el ancho de la pantalla */
+}
+
+.cartaBakoitza {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: transparent; /* Fondo claro para las cartas */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.cartaImg {
+    width: 100%;
+    height: auto;
+    max-width: 100px; /* Ajusta según el tamaño deseado de las cartas */
+}
+.h2Ord{
+    padding-left: 10%;
+}
+.spanCardPosition{
+    padding: 5%;
+}
