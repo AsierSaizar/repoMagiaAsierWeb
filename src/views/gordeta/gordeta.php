@@ -65,6 +65,14 @@ if ($existe) {
             </button>
         </form>
     </center><br><br>
+    <div class="modoVista">
+        <input type="radio" id="list-view" name="view" checked>
+        <label for="list-view"><i class="fa-solid fa-list"></i></label>
+
+        <input type="radio" id="box-view" name="view">
+        <label for="box-view"><i class="fa-solid fa-boxes-stacked"></i></label>
+    </div>
+
 
     <class="containerGordeta">
         <?php
