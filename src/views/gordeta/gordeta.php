@@ -64,17 +64,57 @@ if ($existe) {
                 <i class='fa-solid fa-filter'></i>
             </button>
         </form>
-    </center><br><br>
-    <div class="modoVista">
-        <input type="radio" id="list-view" name="view" checked>
-        <label for="list-view"><i class="fa-solid fa-list"></i></label>
+        <br>
+        <div class="modoVista">
+            <input type="hidden">
+            <input type="radio" id="list-view" name="view" checked>
+            <label for="list-view"><i class="fa-solid fa-list"></i></label>
 
-        <input type="radio" id="box-view" name="view">
-        <label for="box-view"><i class="fa-solid fa-boxes-stacked"></i></label>
-    </div>
+            <input type="radio" id="box-view" name="view">
+            <label for="box-view"><i class="fa-solid fa-boxes-stacked"></i></label>
+        </div>
+        <script>
+            $(document).ready(function () {
+                // Function to toggle visibility based on the selected view
+                function toggleView() {
+                    if ($('#list-view').is(':checked')) {
+                        $('.containerGordetaLista').show();
+                        $('.containerGordetaBox').hide();
+                    } else if ($('#box-view').is(':checked')) {
+                        $('.containerGordetaLista').hide();
+                        $('.containerGordetaBox').show();
+                    }
+                }
+
+                // Initially call toggleView to set the correct visibility on page load
+                toggleView();
+
+                // Add event listener to the radio buttons to toggle view on change
+                $('.modoVista input[type="radio"]').on('change', function () {
+                    toggleView();
+                    localStorage.setItem('selectedView', this.id); // Save selected view in localStorage
+                });
+
+                // Check if there's a saved value in localStorage
+                const savedView = localStorage.getItem('selectedView');
+                if (savedView) {
+                    $('#' + savedView).prop('checked', true);
+                } else {
+                    // Default to list view if nothing is saved
+                    $('#list-view').prop('checked', true);
+                }
+
+                // Trigger the toggle function after setting the correct checked state
+                toggleView();
+            });
 
 
-    <class="containerGordeta">
+
+        </script>
+    </center>
+
+    <!-- containerGordeta LIST -->
+    <div class="containerGordetaLista">
         <?php
         require_once (APP_DIR . "/src/required/functions.php");
         $conn = connection();
@@ -139,9 +179,59 @@ if ($existe) {
         }
         ?>
 
-        </div>
-        <br><br>
+    </div>
+    <!-- containerGordeta BOX -->
+    <div class="containerGordetaBox">
         <?php
+        require_once (APP_DIR . "/src/required/functions.php");
+        $conn = connection();
+        $usuario = $_SESSION["usuario"];
+        if ($catFiltro == "todos") {
+            $sql = "SELECT juegos.*, categorias.categoriasName AS categoria_nombre FROM juegos JOIN  categorias ON juegos.categoria = categorias.idcategorias WHERE 
+        juegos.idjuegos IN (
+            SELECT idJokua 
+            FROM $tablaDB 
+            WHERE $usuario = 1
+        ) and juegos.idjuegos IN (
+            SELECT idjuegos 
+            FROM juegos
+            WHERE $usuario = 1
+        );";
+        } else {
+            $sql = "SELECT juegos.*, categorias.categoriasName AS categoria_nombre FROM juegos JOIN  categorias ON juegos.categoria = categorias.idcategorias WHERE juegos.idjuegos IN (SELECT idJokua FROM $tablaDB WHERE $usuario = 1)and categoria in ( SELECT idcategorias FROM categorias WHERE categoriasName = '$catFiltro') and juegos.idjuegos IN (SELECT idjuegos FROM juegos WHERE $usuario = 1)";
+        }
+
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $juego = $row["juegosName"];
+                $idJuego = $row["idjuegos"];
+                ?>
+                <center>
+                    <a href='<?= HREF_VIEWS_DIR ?>/juego/juego.php?juego=<?= $idJuego ?>' class='juegosDiv marco1 <?= $juego ?>'>
+                        <b>
+                            <div class="trucosName"><?= $juego ?></div>
+                            <div class="trucosSubCat"><?= $row["subcategoria"] ?></div>
+                        </b>
+                        
+                    </a>
+                    <div class="buttons">
+                        <button class="delete-button" id="<?= $row['idjuegos'] ?>">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+
+                    </div>
+                </center>
+                <?php
+            }
+        }
+
+        ?>
+
+    </div>
+    <br><br>
+    <?php
 
 }
 require_once ("../../required/footer.php");
