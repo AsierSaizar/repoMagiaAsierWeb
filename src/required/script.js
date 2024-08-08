@@ -1,17 +1,33 @@
 $(document).ready(function () {
   //FABORITOTAN GEHITZEKO
-  $(".starButtonBtn").click(function () {
+  $(".starButton").click(function () {
     var jokuaId = $(this).attr("id");
 
-    $.ajax({
-      type: "POST",
-      url: "../../required/post.php",
-      data: {
-        action: "fabSartu",
-        jokuaId: jokuaId,
-      },
-    }).done(function (data) {});
-    $(this).removeClass("starButtonBtn").addClass("starButtonBtnFab");
+    if ($(this).hasClass("starButtonBtn")) {
+      // Ezdao sartuta
+      $.ajax({
+        type: "POST",
+        url: "../../required/post.php",
+        data: {
+          action: "fabSartu",
+          jokuaId: jokuaId,
+        },
+      }).done(function (data) {});
+        $(this).removeClass("starButtonBtn").addClass("starButtonBtnFab");
+      
+    } else {
+      // Sartuta dao
+      $.ajax({
+        type: "POST",
+        url: "../../required/post.php",
+        data: {
+          action: "fabKendu",
+          jokuaId: jokuaId,
+        },
+      }).done(function (data) {});
+        $(this).removeClass("starButtonBtnFab").addClass("starButtonBtn");
+      
+    }
 
     
   });
@@ -20,19 +36,35 @@ $(document).ready(function () {
   ////////////////////////////////////////////////////////////////////////////////////////////////
 
   //GORDETAKO LISTA GEHITZEKO
-  $(".listButtonBtn").click(function () {
+  $(".listButton").click(function () {
     var jokuaId = $(this).attr("id");
 
-    $.ajax({
-      type: "POST",
-      url: "../../required/post.php",
-      data: {
-        action: "lstGorde",
-        jokuaId: jokuaId,
-      },
-    }).done(function (data) {});
-
-    $(this).removeClass("listButtonBtn").addClass("listButtonBtnList");
+    if ($(this).hasClass("listButtonBtn")) {
+      // Ezdao sartuta
+      $.ajax({
+        type: "POST",
+        url: "../../required/post.php",
+        data: {
+          action: "lstGorde",
+          jokuaId: jokuaId,
+        },
+      }).done(function (data) {});
+        $(this).removeClass("listButtonBtn").addClass("listButtonBtnList");
+      
+    } else {
+      // Sartuta dao
+      $.ajax({
+        type: "POST",
+        url: "../../required/post.php",
+        data: {
+          action: "lstKendu",
+          jokuaId: jokuaId,
+        },
+      }).done(function (data) {});
+        $(this).removeClass("listButtonBtnList").addClass("listButtonBtn");
+      
+    }
+    
   });
 
   //LISTATIK KENTZEKO
@@ -175,7 +207,9 @@ $(document).ready(function () {
   // HISTORIALETIK JOKUK BORRATZEKO
   $(".deleteHis-button").click(function () {
     var jokuaId = $(this).attr("id");
-    let userResponse = confirm("Seguro que quieres borrar este juego para siempre?");
+    let userResponse = confirm(
+      "Seguro que quieres borrar este juego para siempre?"
+    );
     if (userResponse) {
       $.ajax({
         type: "POST",
@@ -189,6 +223,5 @@ $(document).ready(function () {
         location.reload();
       });
     }
-    
   });
 });

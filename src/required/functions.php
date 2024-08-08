@@ -3,18 +3,12 @@
 
         //RASPBERRY PI
         
-        //$servername = "192.168.1.23"; 
-        //$username = "asiersql"; 
-        //$password = "123";  
-        //$dbname = "diarioMagico";
-        
-
-        //Local
-
-        $servername = "172.23.31.204"; 
+        //$servername = "172.23.31.204"; 
+        $servername = "192.168.1.23";
         $username = "asiersql"; 
         $password = "123";  
         $dbname = "diarioMagico";
+        
         $conn = new mysqli($servername, $username, $password, $dbname);
     
         

@@ -214,7 +214,7 @@ if ($existe) {
                             <div class="trucosName"><?= $juego ?></div>
                             <div class="trucosSubCat"><?= $row["subcategoria"] ?></div>
                         </b>
-                        
+
                     </a>
                     <div class="buttons">
                         <button class="delete-button" id="<?= $row['idjuegos'] ?>">

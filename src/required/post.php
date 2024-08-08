@@ -24,7 +24,28 @@ if (isset($_POST["action"])) {
                 $conn->query("INSERT INTO faboritok (idJokua, $usuario) VALUES ($jokuaId, 1)");
             }
             $conn->close();
-            echo "Juego añadido a favoritos";
+            break;
+        }
+        case "fabKendu": {
+            $jokuaId = $_POST["jokuaId"];
+            $usuario = $_SESSION["usuario"];
+
+
+            require_once ("functions.php");
+
+            $conn = connection();
+
+            // Verifica si ya existe una fila con el mismo idJokua
+            $resultado = $conn->query("SELECT * FROM faboritok WHERE idJokua = $jokuaId");
+
+            if ($resultado->num_rows > 0) {
+                // Si existe, actualiza la columna del usuario correspondiente
+                $conn->query("UPDATE faboritok SET $usuario = 0 WHERE idJokua = $jokuaId");
+            } else {
+                // Si no existe, inserta una nueva fila con los valores
+                $conn->query("INSERT INTO faboritok (idJokua, $usuario) VALUES ($jokuaId, 0)");
+            }
+            $conn->close();
             break;
         }
 
@@ -51,7 +72,28 @@ if (isset($_POST["action"])) {
                 $conn->query("INSERT INTO listangordeta (idJokua, $usuario) VALUES ($jokuaId, 1)");
             }
             $conn->close();
-            echo "Juego añadido a Lista de Guardados";
+            break;
+        }
+        case "lstKendu": {
+            $jokuaId = $_POST["jokuaId"];
+            $usuario = $_SESSION["usuario"];
+
+
+            require_once ("functions.php");
+
+            $conn = connection();
+
+            // Verifica si ya existe una fila con el mismo idJokua
+            $resultado = $conn->query("SELECT * FROM listangordeta WHERE idJokua = $jokuaId");
+
+            if ($resultado->num_rows > 0) {
+                // Si existe, actualiza la columna del usuario correspondiente
+                $conn->query("UPDATE listangordeta SET $usuario = 0 WHERE idJokua = $jokuaId");
+            } else {
+                // Si no existe, inserta una nueva fila con los valores
+                $conn->query("INSERT INTO listangordeta (idJokua, $usuario) VALUES ($jokuaId, 0)");
+            }
+            $conn->close();
             break;
         }
 
@@ -257,7 +299,7 @@ if (isset($_POST["action"])) {
             $conn = connection();
 
 
-            
+
 
             // Elimina el registro de la tabla de historial
             $conn->query("DELETE FROM historial_juegos WHERE idjuegos = $idjuegos");
