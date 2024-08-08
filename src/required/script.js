@@ -12,6 +12,8 @@ $(document).ready(function () {
       },
     }).done(function (data) {});
     $(this).removeClass("starButtonBtn").addClass("starButtonBtnFab");
+
+    
   });
 
   ////////////////////////////////////////////////////////////////////////////////////////////////
