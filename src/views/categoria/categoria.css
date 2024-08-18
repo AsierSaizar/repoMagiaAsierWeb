@@ -61,15 +61,7 @@
     margin: 0 5px; /* Espaciado entre los botones */
 }
 
-.iconButton:hover {
-    color: rgb(255, 240, 104);
-}
-.listButton:hover {
-    color: seagreen;
-}
-.editButton:hover{
-    color: royalblue;
-}
+
 .buttons {
     display: flex;
     justify-content: center;
@@ -127,6 +119,7 @@ form {
     font-size: 20px;
     color: rgb(255, 240, 104);
 }
+
 
 /* Estilos para el icono dentro del botón */
 .search-buttonFiltro i {
