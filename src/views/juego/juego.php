@@ -1,14 +1,14 @@
 <link rel="stylesheet" href="juego.css">
 <?php
 
-require_once ("../../required/head.php");
+require_once("../../required/head.php");
 
-require_once (APP_DIR . "/src/required/functions.php");
+require_once(APP_DIR . "/src/required/functions.php");
 $conn = connection();
-
+$usuario = $_SESSION["usuario"];
 $idJuego = isset($_GET["juego"]) ? $_GET["juego"] : "1";
 
-$sql = "SELECT * FROM juegos WHERE idjuegos = $idJuego;";
+$sql = "SELECT * FROM juegos WHERE idjuegos = $idJuego order by subcategoria;";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc()
@@ -16,10 +16,64 @@ if ($result->num_rows > 0) {
         ?>
     <br>
 
-    <center>
+    <div class="tituloJokua">
+        <?php
+                    $sql1 = "WITH juegos_ordenados AS (
+                SELECT 
+                    idjuegos,
+                    ROW_NUMBER() OVER (ORDER BY subcategoria) AS rn
+                FROM juegos
+                WHERE categoria = (SELECT categoria FROM juegos WHERE idjuegos = $idJuego)
+                  AND $usuario = 1
+            ),
+            posicion_actual AS (
+                SELECT rn 
+                FROM juegos_ordenados 
+                WHERE idjuegos = $idJuego
+            )
+            SELECT 
+                (SELECT idjuegos FROM juegos_ordenados WHERE rn = (SELECT rn - 1 FROM posicion_actual)) AS idjuego_anterior,
+                (SELECT idjuegos FROM juegos_ordenados WHERE rn = (SELECT rn + 1 FROM posicion_actual)) AS idjuego_posterior;";
+
+        $result1 = $conn->query($sql1);
+        $idjuegosArray = array(); // Inicializa un array vacío
+        if ($result1->num_rows > 0) { 
+            while ($row1 = $result1->fetch_assoc()) {
+                $idjuegoAnterior = $row1['idjuego_anterior'];
+                $idjuegoPosterior = $row1['idjuego_posterior'];
+            }
+        }
+
+        if(empty($idjuegoAnterior)){
+            ?>
+            <div></div>
+            <?php
+        }else{
+            ?>
+            <a href="<?= HREF_VIEWS_DIR ?>/juego/juego.php?juego=<?= $idjuegoAnterior ?>">
+            <i class="fa-solid fa-chevron-left fletxak"></i>
+            </a>
+            <?php
+        }
+        ?>
+
         <h1><?= $row["juegosName"] ?></h1>
-        <br><br>
-    </center>
+        
+        <?php
+        if(empty($idjuegoPosterior)){
+            ?>
+            <div></div>
+            <?php
+        }else{
+            ?>
+            <a href="<?= HREF_VIEWS_DIR ?>/juego/juego.php?juego=<?= $idjuegoPosterior ?>">
+            <i class="fa-solid fa-chevron-right fletxak"></i>
+        </a>
+            <?php
+        }?>
+        
+
+    </div><br><br>
     <div class="containerJuego">
         <?php
 
@@ -93,5 +147,5 @@ if ($result->num_rows > 0) {
 
 <?php
 
-require_once ("../../required/footer.php");
+require_once("../../required/footer.php");
 ?>

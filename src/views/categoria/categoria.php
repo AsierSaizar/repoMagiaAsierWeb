@@ -67,13 +67,13 @@ if ($categoria == 10) {
         if ($subcatFiltro == "todos") {
             $sql = "SELECT * FROM juegos WHERE $usuario = 1 order by subcategoria;";
         } else {
-            $sql = "SELECT j.* FROM juegos j JOIN categorias c ON j.categoria = c.idcategorias WHERE subcategoria='$subcatFiltro' and $usuario = 1 ;";
+            $sql = "SELECT j.* FROM juegos j JOIN categorias c ON j.categoria = c.idcategorias WHERE subcategoria='$subcatFiltro' and $usuario = 1 order by subcategoria;";
         }
     } else {
         if ($subcatFiltro == "todos") {
-            $sql = "SELECT j.* FROM juegos j JOIN categorias c ON j.categoria = c.idcategorias WHERE c.categoriasName = '$categoria' and $usuario = 1;";
+            $sql = "SELECT j.* FROM juegos j JOIN categorias c ON j.categoria = c.idcategorias WHERE c.categoriasName = '$categoria' and $usuario = 1 order by subcategoria;";
         } else {
-            $sql = "SELECT j.* FROM juegos j JOIN categorias c ON j.categoria = c.idcategorias WHERE c.categoriasName = '$categoria' and subcategoria='$subcatFiltro' and $usuario = 1 ;";
+            $sql = "SELECT j.* FROM juegos j JOIN categorias c ON j.categoria = c.idcategorias WHERE c.categoriasName = '$categoria' and subcategoria='$subcatFiltro' and $usuario = 1 order by subcategoria;";
         }
     }
 

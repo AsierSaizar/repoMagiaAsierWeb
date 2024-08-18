@@ -14,7 +14,15 @@ require_once ("../../required/carrusel.php");
     require_once (APP_DIR . "/src/required/functions.php");
 
     $conn = connection();
-    $sql = "SELECT * FROM categorias;";
+    $sql = "SELECT * 
+        FROM diarioMagico.categorias
+        ORDER BY 
+            CASE idcategorias
+                WHEN 1 THEN 1
+                WHEN 2 THEN 2
+                WHEN 4 THEN 3
+                WHEN 3 THEN 4
+            END;";
     $result = $conn->query($sql);
     ?>
     <center>
