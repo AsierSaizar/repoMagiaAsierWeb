@@ -13,4 +13,10 @@
 .fletxak{
     margin-top: 15px;
     font-size: 50px;
+    color: white;
+    transition: font-size 0.1s;
+}
+.fletxak:hover{
+    font-size: 55px;
+    color: rgb(255, 240, 104);
 }

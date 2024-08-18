@@ -1,13 +1,14 @@
 <link rel="stylesheet" href="categoria.css">
 <?php
 
-require_once ("../../required/head.php");
+require_once("../../required/head.php");
 
 //CATEGORIAK MANEJATZEKO ETA EZ KENTZEKO FILTROAKIN ///////////
 $categoriaSESSION = isset($_SESSION["categoria"]) ? $_SESSION["categoria"] : "Cartomagia";
 $categoria = isset($_GET["categoria"]) ? $_GET["categoria"] : $categoriaSESSION;
 $_SESSION["categoria"] = $categoria;
 
+$usuario = $_SESSION["usuario"];
 $todosJuegos = false;
 if ($categoria == 10) {
     $categoria = "Todos Los Juegos";
@@ -16,13 +17,23 @@ if ($categoria == 10) {
 ?>
 <br>
 <center>
-    <h1><?= $categoria ?></h1><br>
+    <?php
+    require_once(APP_DIR . "/src/required/functions.php");
+    $conn = connection();
+    if ($todosJuegos) {
+        $sql1 = "SELECT count(*) AS CANTIDAD FROM diarioMagico.juegos where $usuario = 1;";
+    } else {
+        $sql1 = "SELECT count(*) AS CANTIDAD FROM diarioMagico.juegos where categoria=(Select idcategorias FROM categorias where categoriasName='$categoria') AND $usuario = 1;";
+    }
+    $result = $conn->query($sql1);
+    $row1 = $result->fetch_assoc()
+    
+        ?>
+    <h1><?= $categoria ?> (<?= $row1['CANTIDAD'] ?>)</h1><br>
     <form method="get">
         <select name="subcatFiltro" id="subcatFiltro">
             <?php
-            require_once (APP_DIR . "/src/required/functions.php");
             $conn = connection();
-            $usuario = $_SESSION["usuario"];
             if (isset($_GET["subcatFiltro"])) {
                 $subcatFiltro = $_GET["subcatFiltro"];
             } else {
@@ -63,7 +74,7 @@ if ($categoria == 10) {
     $usuario = $_SESSION["usuario"];
 
     if ($todosJuegos) {
-        
+
         if ($subcatFiltro == "todos") {
             $sql = "SELECT * FROM juegos WHERE $usuario = 1 order by subcategoria;";
         } else {
@@ -148,5 +159,5 @@ if ($categoria == 10) {
 <br><br>
 <?php
 
-require_once ("../../required/footer.php");
+require_once("../../required/footer.php");
 ?>

@@ -18,7 +18,7 @@ if ($result->num_rows > 0) {
 
     <div class="tituloJokua">
         <?php
-                    $sql1 = "WITH juegos_ordenados AS (
+        $sql1 = "WITH juegos_ordenados AS (
                 SELECT 
                     idjuegos,
                     ROW_NUMBER() OVER (ORDER BY subcategoria) AS rn
@@ -37,41 +37,70 @@ if ($result->num_rows > 0) {
 
         $result1 = $conn->query($sql1);
         $idjuegosArray = array(); // Inicializa un array vacío
-        if ($result1->num_rows > 0) { 
+        if ($result1->num_rows > 0) {
             while ($row1 = $result1->fetch_assoc()) {
                 $idjuegoAnterior = $row1['idjuego_anterior'];
                 $idjuegoPosterior = $row1['idjuego_posterior'];
             }
         }
 
-        if(empty($idjuegoAnterior)){
+        if (empty($idjuegoAnterior)) {
             ?>
             <div></div>
             <?php
-        }else{
+        } else {
             ?>
             <a href="<?= HREF_VIEWS_DIR ?>/juego/juego.php?juego=<?= $idjuegoAnterior ?>">
-            <i class="fa-solid fa-chevron-left fletxak"></i>
+                <i class="fa-solid fa-chevron-left fletxak"></i>
             </a>
             <?php
         }
-        ?>
 
-        <h1><?= $row["juegosName"] ?></h1>
-        
+
+        $sql2 = "SELECT 
+        posicion
+        FROM (
+        SELECT 
+        idjuegos,
+        ROW_NUMBER() OVER (ORDER BY subcategoria) as posicion
+        FROM 
+        juegos
+        WHERE 
+        categoria = (SELECT categoria FROM juegos WHERE idjuegos = $idJuego) 
+        AND $usuario = 1
+        ORDER BY 
+        subcategoria
+        ) AS subconsulta
+        WHERE idjuegos = $idJuego;
+        ";
+    $result2 = $conn->query($sql2);
+    $row2 = $result2->fetch_assoc();
+
+
+        $sql3 = "SELECT COUNT(*) as CANTIDAD
+        FROM juegos
+        WHERE categoria = (SELECT categoria FROM juegos WHERE idjuegos = $idJuego) 
+        AND $usuario = 1;";
+        $result3 = $conn->query($sql3);
+        $row3 = $result3->fetch_assoc()
+
+?>
+
+        <h1><?= $row["juegosName"] ?> (<?= $row2["posicion"] ?>/<?=$row3['CANTIDAD']?>)</h1>
+
         <?php
-        if(empty($idjuegoPosterior)){
+        if (empty($idjuegoPosterior)) {
             ?>
             <div></div>
             <?php
-        }else{
+        } else {
             ?>
             <a href="<?= HREF_VIEWS_DIR ?>/juego/juego.php?juego=<?= $idjuegoPosterior ?>">
-            <i class="fa-solid fa-chevron-right fletxak"></i>
-        </a>
+                <i class="fa-solid fa-chevron-right fletxak"></i>
+            </a>
             <?php
-        }?>
-        
+        } ?>
+
 
     </div><br><br>
     <div class="containerJuego">
