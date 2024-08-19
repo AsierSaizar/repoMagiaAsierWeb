@@ -154,10 +154,21 @@ form {
     display: none; /* Hide both divs initially */
 }
 /* BOX VISTAAA CSSSSSSSSSSSSSSSSS */
-.containerGordetaBox{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+@media only screen and (max-width: 1000px) {
+    .containerGordetaBox{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
+
+/* Estilos específicos para pantallas de ordenador */
+@media only screen and (min-width: 1001px) {
+    .containerGordetaBox{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
 
 
 .trucosName:hover{

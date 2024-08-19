@@ -118,14 +118,17 @@ if ($categoria == 10) {
     }
 
     if ($result->num_rows > 0) {
+        
+        $gameNumber = 0;
         while ($row = $result->fetch_assoc()) {
             $juego = $row["juegosName"];
             $idJuego = $row["idjuegos"];
             $fabBauka = in_array($idJuego, $faboritos) ? "starButtonBtnFab" : "starButtonBtn";
             $ListBauka = in_array($idJuego, $listakokGord) ? "listButtonBtnList" : "listButtonBtn";
+            $gameNumber ++;
             ?>
             <center>
-                <a href='<?= HREF_VIEWS_DIR ?>/juego/juego.php?juego=<?= $idJuego ?>' class='juegosDiv marco1 <?= $juego ?>'>
+                <a href='<?= HREF_VIEWS_DIR ?>/juego/juego.php?juego=<?= $idJuego ?>' class='juegosDiv marco1 <?= $juego ?>' data-number="<?= $gameNumber ?>">
                     <b>
                         <div class="trucosName"><?= $juego ?></div>
                         <div class="trucosSubCat"><?= $row["subcategoria"] ?></div>
