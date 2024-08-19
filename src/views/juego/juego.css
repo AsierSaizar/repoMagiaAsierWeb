@@ -20,3 +20,11 @@
     font-size: 55px;
     color: rgb(255, 240, 104);
 }
+.categoriaNameLink{
+    color: white;
+    font-size: 2.5rem;
+}
+.categoriaNameLink:hover{
+    text-decoration: none;
+    color: rgb(255, 240, 104);
+}

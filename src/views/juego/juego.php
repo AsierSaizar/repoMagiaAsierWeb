@@ -8,15 +8,48 @@ $conn = connection();
 $usuario = $_SESSION["usuario"];
 $idJuego = isset($_GET["juego"]) ? $_GET["juego"] : "1";
 
+
+$sqlCat = "SELECT categoriasName FROM categorias WHERE idcategorias=(SELECT categoria FROM juegos WHERE idjuegos=2);";
+$resultCat = $conn->query($sqlCat);
+$rowCat = $resultCat->fetch_assoc();
+
+
 $sql = "SELECT * FROM juegos WHERE idjuegos = $idJuego order by subcategoria;";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc()
+    $row = $result->fetch_assoc();
         //JOKUAN DATOK JARTZEN HASTEA DAO HEMEN
+        $sql2 = "SELECT 
+        posicion
+        FROM (
+        SELECT 
+        idjuegos,
+        ROW_NUMBER() OVER (ORDER BY subcategoria) as posicion
+        FROM 
+        juegos
+        WHERE 
+        categoria = (SELECT categoria FROM juegos WHERE idjuegos = $idJuego) 
+        AND $usuario = 1
+        ORDER BY 
+        subcategoria
+        ) AS subconsulta
+        WHERE idjuegos = $idJuego;
+        ";
+        $result2 = $conn->query($sql2);
+        $row2 = $result2->fetch_assoc();
+
+
+        $sql3 = "SELECT COUNT(*) as CANTIDAD
+        FROM juegos
+        WHERE categoria = (SELECT categoria FROM juegos WHERE idjuegos = $idJuego) 
+        AND $usuario = 1;";
+        $result3 = $conn->query($sql3);
+        $row3 = $result3->fetch_assoc()
+        
         ?>
     <br>
-
-    <div class="tituloJokua">
+    <center><a class="categoriaNameLink" href="<?= HREF_VIEWS_DIR ?>/categoria/categoria.php?categoria=<?= $rowCat["categoriasName"] ?>"><?= $rowCat["categoriasName"] ?> (<?= $row2["posicion"] ?>/<?=$row3['CANTIDAD']?>)</a><br></center>
+    <br><div class="tituloJokua">
         <?php
         $sql1 = "WITH juegos_ordenados AS (
                 SELECT 
@@ -57,36 +90,10 @@ if ($result->num_rows > 0) {
         }
 
 
-        $sql2 = "SELECT 
-        posicion
-        FROM (
-        SELECT 
-        idjuegos,
-        ROW_NUMBER() OVER (ORDER BY subcategoria) as posicion
-        FROM 
-        juegos
-        WHERE 
-        categoria = (SELECT categoria FROM juegos WHERE idjuegos = $idJuego) 
-        AND $usuario = 1
-        ORDER BY 
-        subcategoria
-        ) AS subconsulta
-        WHERE idjuegos = $idJuego;
-        ";
-    $result2 = $conn->query($sql2);
-    $row2 = $result2->fetch_assoc();
+        
+        ?>
 
-
-        $sql3 = "SELECT COUNT(*) as CANTIDAD
-        FROM juegos
-        WHERE categoria = (SELECT categoria FROM juegos WHERE idjuegos = $idJuego) 
-        AND $usuario = 1;";
-        $result3 = $conn->query($sql3);
-        $row3 = $result3->fetch_assoc()
-
-?>
-
-        <h1><?= $row["juegosName"] ?> (<?= $row2["posicion"] ?>/<?=$row3['CANTIDAD']?>)</h1>
+        <h1 class=""><?= $row["juegosName"] ?></h1>
 
         <?php
         if (empty($idjuegoPosterior)) {
