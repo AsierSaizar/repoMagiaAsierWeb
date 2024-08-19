@@ -9,7 +9,7 @@ $usuario = $_SESSION["usuario"];
 $idJuego = isset($_GET["juego"]) ? $_GET["juego"] : "1";
 
 
-$sqlCat = "SELECT categoriasName FROM categorias WHERE idcategorias=(SELECT categoria FROM juegos WHERE idjuegos=2);";
+$sqlCat = "SELECT categoriasName FROM categorias WHERE idcategorias=(SELECT categoria FROM juegos WHERE idjuegos = $idJuego);";
 $resultCat = $conn->query($sqlCat);
 $rowCat = $resultCat->fetch_assoc();
 
