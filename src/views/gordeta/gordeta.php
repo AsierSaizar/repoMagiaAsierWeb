@@ -129,9 +129,9 @@ if ($existe) {
             SELECT idjuegos 
             FROM juegos
             WHERE $usuario = 1
-        );";
+        ) Order BY categoria_nombre, subcategoria;";
         } else {
-            $sql = "SELECT juegos.*, categorias.categoriasName AS categoria_nombre FROM juegos JOIN  categorias ON juegos.categoria = categorias.idcategorias WHERE juegos.idjuegos IN (SELECT idJokua FROM $tablaDB WHERE $usuario = 1)and categoria in ( SELECT idcategorias FROM categorias WHERE categoriasName = '$catFiltro') and juegos.idjuegos IN (SELECT idjuegos FROM juegos WHERE $usuario = 1)";
+            $sql = "SELECT juegos.*, categorias.categoriasName AS categoria_nombre FROM juegos JOIN  categorias ON juegos.categoria = categorias.idcategorias WHERE juegos.idjuegos IN (SELECT idJokua FROM $tablaDB WHERE $usuario = 1)and categoria in ( SELECT idcategorias FROM categorias WHERE categoriasName = '$catFiltro') and juegos.idjuegos IN (SELECT idjuegos FROM juegos WHERE $usuario = 1)Order BY subcategoria";
         }
 
         $result = $conn->query($sql);
@@ -196,9 +196,9 @@ if ($existe) {
             SELECT idjuegos 
             FROM juegos
             WHERE $usuario = 1
-        );";
+        )Order BY categoria_nombre, subcategoria;";
         } else {
-            $sql = "SELECT juegos.*, categorias.categoriasName AS categoria_nombre FROM juegos JOIN  categorias ON juegos.categoria = categorias.idcategorias WHERE juegos.idjuegos IN (SELECT idJokua FROM $tablaDB WHERE $usuario = 1)and categoria in ( SELECT idcategorias FROM categorias WHERE categoriasName = '$catFiltro') and juegos.idjuegos IN (SELECT idjuegos FROM juegos WHERE $usuario = 1)";
+            $sql = "SELECT juegos.*, categorias.categoriasName AS categoria_nombre FROM juegos JOIN  categorias ON juegos.categoria = categorias.idcategorias WHERE juegos.idjuegos IN (SELECT idJokua FROM $tablaDB WHERE $usuario = 1)and categoria in ( SELECT idcategorias FROM categorias WHERE categoriasName = '$catFiltro') and juegos.idjuegos IN (SELECT idjuegos FROM juegos WHERE $usuario = 1)Order BY subcategoria";
         }
 
         $result = $conn->query($sql);
