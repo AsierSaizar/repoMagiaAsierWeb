@@ -15,9 +15,13 @@ label {
     margin-bottom: 5px;
     color: #ffffff;
 }
-
+.textarea-resizable{
+    overflow: hidden; /* Prevenir barra de desplazamiento */
+    resize: none; /* Evitar que el usuario redimensione manualmente */
+}
 .form-control {
     width: 100%;
+    height: auto;
     padding: 8px;
     box-sizing: border-box;
 }

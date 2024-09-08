@@ -68,8 +68,8 @@ if (isset($_GET["categoria"])) {
                     $value = "";
                 }
                 ?>
-                <input type="text" id="descripcion" class="form-control" name="descripcion"
-                    value="<?= ($editatu) ? "$value" : ""; ?>">
+                <textarea class="textarea-resizable form-control" name="pasos" oninput="autoResizeTextarea(this)"><?= htmlspecialchars(($editatu) ? "$value" : ""); ?>
+</textarea>
             </div>
 
 
@@ -164,10 +164,10 @@ if (isset($_GET["categoria"])) {
                     $value = "";
                 }
                 ?>
-                <input type="text" id="pasos" class="form-control" name="pasos"
-                    value="<?= ($editatu) ? "$value" : ""; ?>">
+                <textarea class="textarea-resizable form-control" name="pasos" oninput="autoResizeTextarea(this)"><?= htmlspecialchars(($editatu) ? "$value" : ""); ?>
+</textarea>
             </div>
-
+            
 
 
 
@@ -182,8 +182,8 @@ if (isset($_GET["categoria"])) {
                     $value = "";
                 }
                 ?>
-                <input type="text" id="notas" class="form-control" name="notas" maxlength="225"
-                    value="<?= ($editatu) ? "$value" : ""; ?>">
+                <textarea class="textarea-resizable form-control" name="pasos" oninput="autoResizeTextarea(this)"><?= htmlspecialchars(($editatu) ? "$value" : ""); ?>
+</textarea>
             </div>
 
 
@@ -283,6 +283,30 @@ if (isset($_GET["categoria"])) {
             tags: true,
             placeholder: 'Selecciona o escribe una nueva opción',
             allowClear: true
+        });
+    });
+    
+    // Función para ajustar la altura del textarea automáticamente
+    function autoResizeTextarea(el) {
+        el.style.height = 'auto'; // Restablecer la altura
+        el.style.height = (el.scrollHeight) + 'px'; // Ajustar la altura según el contenido
+        console.log('Altura ajustada a:', el.scrollHeight); // Para verificar la ejecución
+    }
+
+    // Aplicar la función a todos los textareas con la clase 'textarea-resizable'
+    document.addEventListener('DOMContentLoaded', function() {
+        const textareas = document.querySelectorAll('.textarea-resizable');
+        
+        // Ajustar la altura al cargar la página
+        textareas.forEach(textarea => {
+            autoResizeTextarea(textarea);
+        });
+
+        // También asegurarse de que la altura cambie cuando el usuario escriba
+        textareas.forEach(textarea => {
+            textarea.addEventListener('input', function() {
+                autoResizeTextarea(textarea);
+            });
         });
     });
 </script>
