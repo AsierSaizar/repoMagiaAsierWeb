@@ -25,6 +25,78 @@ body{
     align-items: center;
 }
 
+/* Estilo del campo de búsqueda (textbox) */
+.search-field {
+    display: none; /* Oculto inicialmente */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #555; /* Bordes gris oscuro */
+    border-radius: 8px; /* Bordes redondeados */
+    background-color: #2c2c2c; /* Fondo oscuro */
+    color: #fff; /* Texto blanco */
+    transition: border 0.3s ease, width 0.3s ease; /* Transición suave para aparecer */
+    width: 0; /* Ancho inicial 0 para la transición */
+    outline: none; /* Quitar borde de foco por defecto */
+}
+
+.search-field.active {
+    display: inline-block; /* Mostrar campo al hacer clic */
+    width: 250px; /* Ancho cuando se activa */
+}
+
+.search-field:focus {
+    border: 1px solid #f1c40f; /* Cambio de color del borde al hacer foco */
+}
+
+/* Estilo del botón "Siguiente" */
+.next-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #f1c40f; /* Color de fondo dorado */
+    color: #2c2c2c; /* Texto oscuro */
+    border: none;
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.next-btn:hover {
+    background-color: #ffdf00; /* Fondo un poco más claro al hacer hover */
+    color: #000; /* Texto negro al hacer hover */
+}
+
+.next-btn:active {
+    background-color: #e6b800; /* Fondo más oscuro cuando se presiona */
+}
+
+/* Adaptación del campo de búsqueda en pantallas pequeñas */
+@media screen and (max-width: 1000px) {
+    .search-field {
+        width: 20%; /* El campo de búsqueda ocupa todo el ancho en móviles */
+        font-size: 14px;
+    }
+
+    .next-btn {
+        width: 60%;
+        margin-top: 10px;
+        font-size: 14px;
+    }
+}
+.highlightt {
+    background-color: #3399ff; /* Color de fondo azul */
+    color: #fff; /* El texto resaltado será blanco */
+}
+
+/* Clase para la coincidencia actual (cuando se navega con el botón "Siguiente") */
+.current-highlightt {
+    background-color: #0056b3; /* Un azul más oscuro para la coincidencia actual */
+    color: #fff; /* Mantener el texto en blanco */
+}
+
+
 .usuarioName{
     color: white;
     background-color: transparent;
