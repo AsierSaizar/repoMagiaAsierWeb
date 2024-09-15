@@ -128,7 +128,7 @@ if ($categoria == 10) {
             $gameNumber ++;
             ?>
             <center>
-                <a href='<?= HREF_VIEWS_DIR ?>/juego/juego.php?juego=<?= $idJuego ?>' class='juegosDiv marco1 <?= $juego ?>' data-number="<?= $gameNumber ?>">
+                <a href='<?= HREF_VIEWS_DIR ?>/juego/juego.php?juego=<?= $idJuego ?>' class='juegosDiv marco1 ' data-number="<?= $gameNumber ?>">
                     <b>
                         <div class="trucosName"><?= $juego ?></div>
                         <div class="trucosSubCat"><?= $row["subcategoria"] ?></div>

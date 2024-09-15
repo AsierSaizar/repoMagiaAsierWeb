@@ -209,7 +209,7 @@ if ($existe) {
                 $idJuego = $row["idjuegos"];
                 ?>
                 <center>
-                    <a href='<?= HREF_VIEWS_DIR ?>/juego/juego.php?juego=<?= $idJuego ?>' class='juegosDiv marco1 <?= $juego ?>'>
+                    <a href='<?= HREF_VIEWS_DIR ?>/juego/juego.php?juego=<?= $idJuego ?>' class='juegosDiv marco1'>
                         <b>
                             <div class="trucosName"><?= $juego ?></div>
                             <div class="trucosSubCat"><?= $row["subcategoria"] ?></div>
