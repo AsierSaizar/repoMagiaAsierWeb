@@ -68,7 +68,7 @@ if (isset($_GET["categoria"])) {
                     $value = "";
                 }
                 ?>
-                <textarea class="textarea-resizable form-control" name="pasos" oninput="autoResizeTextarea(this)"><?= htmlspecialchars(($editatu) ? "$value" : ""); ?>
+                <textarea class="textarea-resizable form-control" id="descripcion" name="descripcion" oninput="autoResizeTextarea(this)"><?= htmlspecialchars(($editatu) ? "$value" : ""); ?>
 </textarea>
             </div>
 
@@ -164,7 +164,7 @@ if (isset($_GET["categoria"])) {
                     $value = "";
                 }
                 ?>
-                <textarea class="textarea-resizable form-control" name="pasos" oninput="autoResizeTextarea(this)"><?= htmlspecialchars(($editatu) ? "$value" : ""); ?>
+                <textarea class="textarea-resizable form-control" id="pasos" name="pasos" oninput="autoResizeTextarea(this)"><?= htmlspecialchars(($editatu) ? "$value" : ""); ?>
 </textarea>
             </div>
             
@@ -182,7 +182,7 @@ if (isset($_GET["categoria"])) {
                     $value = "";
                 }
                 ?>
-                <textarea class="textarea-resizable form-control" name="pasos" oninput="autoResizeTextarea(this)"><?= htmlspecialchars(($editatu) ? "$value" : ""); ?>
+                <textarea class="textarea-resizable form-control" id="notas" name="notas" oninput="autoResizeTextarea(this)"><?= htmlspecialchars(($editatu) ? "$value" : ""); ?>
 </textarea>
             </div>
 
