@@ -64,10 +64,10 @@
                     <img src='../../../public/logoRepertorio.png' width="50px">
                 </a>
             </div>
+
             <div class="buscador">
                 <i class="fa-solid fa-magnifying-glass" id="icono-buscar"></i>
                 <input type="text" id="search-input" placeholder="Buscar..." class="search-field">
-                <button id="next-button" class="next-btn" style="display:none;">Buscar siguiente</button>
             </div>
         </div>
 
@@ -95,6 +95,20 @@
                     } else {
                         quitarResaltados(); // Limpiar los resaltados si no hay texto
                         botonSiguiente.style.display = "none"; // Ocultar el botón "Siguiente" si no hay búsqueda
+                    }
+                });
+
+                // Ejecutar la búsqueda al presionar "Enter"
+                campoBuscar.addEventListener("keydown", function (event) {
+                    if (event.key === "Enter") { // Si se presiona la tecla Enter
+                        event.preventDefault(); // Evitar que el formulario se envíe si es el caso
+                        if (allMatches.length > 0) {
+                            currentIndex++;
+                            if (currentIndex >= allMatches.length) {
+                                currentIndex = 0; // Volver al principio si se llega al final
+                            }
+                            moverACoincidencia(currentIndex);
+                        }
                     }
                 });
 
@@ -148,6 +162,7 @@
                     });
                 }
             });
+
         </script>
 
         <!-- USUARIOA KONTROLA //////////////////-->
