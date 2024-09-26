@@ -33,6 +33,8 @@ body{
     align-items: center;
 }
 
+
+
 /* Estilo del campo de búsqueda (textbox) */
 .search-field {
     display: none; /* Oculto inicialmente */
