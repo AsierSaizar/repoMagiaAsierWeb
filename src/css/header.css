@@ -49,9 +49,21 @@ body{
     outline: none; /* Quitar borde de foco por defecto */
 }
 
-.search-field.active {
-    display: inline-block; /* Mostrar campo al hacer clic */
-    width: 250px; /* Ancho cuando se activa */
+
+
+@media only screen and (max-width: 1000px) {
+    .search-field.active {
+        display: inline-block; /* Mostrar campo al hacer clic */
+        width: 65px; /* Ancho cuando se activa */
+    }
+}
+
+/* Estilos específicos para pantallas de ordenador */
+@media only screen and (min-width: 1001px) {
+    .search-field.active {
+        display: inline-block; /* Mostrar campo al hacer clic */
+        width: 250px; /* Ancho cuando se activa */
+    }
 }
 
 .search-field:focus {
