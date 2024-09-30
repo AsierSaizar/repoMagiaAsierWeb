@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="gordeta.css">
 <?php
 
-require_once ("../../required/head.php");
+require_once("../../required/head.php");
 //CATEGORIAK MANEJATZEKO ETA EZ KENTZEKO FILTROAKIN ///////////
 
 
@@ -28,7 +28,7 @@ if ($existe) {
         <form method="get">
             <select name="catFiltro" id="catFiltro">
                 <?php
-                require_once (APP_DIR . "/src/required/functions.php");
+                require_once(APP_DIR . "/src/required/functions.php");
                 $conn = connection();
                 $usuario = $_SESSION["usuario"];
                 if (isset($_GET["catFiltro"])) {
@@ -116,7 +116,7 @@ if ($existe) {
     <!-- containerGordeta LIST -->
     <div class="containerGordetaLista">
         <?php
-        require_once (APP_DIR . "/src/required/functions.php");
+        require_once(APP_DIR . "/src/required/functions.php");
         $conn = connection();
         $usuario = $_SESSION["usuario"];
         if ($catFiltro == "todos") {
@@ -165,6 +165,11 @@ if ($existe) {
                                     <button class="delete-button" id="<?= $row['idjuegos'] ?>">
                                         <i class="fas fa-trash-alt"></i>
                                     </button>
+                                    <a id="<?= $row['idjuegos'] ?>" class="iconButton editButton"
+                                        href="<?= HREF_SRC_DIR ?>/views/jokuaSortu/jokuaSortu.php?jokua=<?= $row['idjuegos'] ?>"
+                                        title="List">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
                                 </td>
                             </tr>
                             <?php
@@ -183,7 +188,7 @@ if ($existe) {
     <!-- containerGordeta BOX -->
     <div class="containerGordetaBox">
         <?php
-        require_once (APP_DIR . "/src/required/functions.php");
+        require_once(APP_DIR . "/src/required/functions.php");
         $conn = connection();
         $usuario = $_SESSION["usuario"];
         if ($catFiltro == "todos") {
@@ -221,6 +226,11 @@ if ($existe) {
                             <i class="fas fa-trash-alt"></i>
                         </button>
 
+                        <a id="<?= $row['idjuegos'] ?>" class="iconButton editButton"
+                            href="<?= HREF_SRC_DIR ?>/views/jokuaSortu/jokuaSortu.php?jokua=<?= $row['idjuegos'] ?>" title="List">
+                            <i class="fas fa-edit"></i>
+                        </a>
+
                     </div>
                 </center>
                 <?php
@@ -234,5 +244,5 @@ if ($existe) {
     <?php
 
 }
-require_once ("../../required/footer.php");
+require_once("../../required/footer.php");
 ?>
