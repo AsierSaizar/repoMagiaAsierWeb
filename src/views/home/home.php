@@ -41,16 +41,23 @@ $usuario = $_SESSION["usuario"];
             <?php
 
             $sqlCont = "SELECT 
-                    SUM(CASE WHEN categoria = 1 THEN 1 ELSE 0 END) AS Cartomagia,
-                    SUM(CASE WHEN categoria = 2 THEN 1 ELSE 0 END) AS Numismagia,
-                    SUM(CASE WHEN categoria = 4 THEN 1 ELSE 0 END) AS Mentalismo,
-                    SUM(CASE WHEN categoria = 3 THEN 1 ELSE 0 END) AS Cuerdas,
-                    
-                    (SELECT COUNT(*) FROM diarioMagico.faboritok WHERE $usuario = 1) AS total_faboritok,
-    
-                    (SELECT COUNT(*) FROM diarioMagico.listangordeta WHERE $usuario = 1) AS total_listangordeta
-                FROM diarioMagico.juegos
-                WHERE $usuario = 1;";
+    SUM(CASE WHEN categoria = 1 THEN 1 ELSE 0 END) AS Cartomagia,
+    SUM(CASE WHEN categoria = 2 THEN 1 ELSE 0 END) AS Numismagia,
+    SUM(CASE WHEN categoria = 3 THEN 1 ELSE 0 END) AS Mentalismo,
+    SUM(CASE WHEN categoria = 4 THEN 1 ELSE 0 END) AS Cuerdas,
+
+    (SELECT COUNT(*) FROM diarioMagico.juegos WHERE $usuario = 1 AND idjuegos IN (
+		SELECT idJokua 
+		FROM diarioMagico.faboritok 
+		WHERE $usuario = 1)) AS total_faboritok,
+        
+    (SELECT COUNT(*) FROM diarioMagico.juegos WHERE $usuario = 1 AND idjuegos IN (
+        SELECT idJokua 
+        FROM diarioMagico.listangordeta 
+        WHERE $usuario = 1
+    )) AS total_listangordeta
+    FROM diarioMagico.juegos
+    WHERE $usuario = 1;";
 
             $resultCont = $conn->query($sqlCont);
             $resultCont->num_rows;
@@ -79,14 +86,16 @@ $usuario = $_SESSION["usuario"];
 
 
             <div class="categoriaDiv">
-                <a class="linkCategorias cont" href="<?= HREF_SRC_DIR ?>/views/gordeta/gordeta.php?gordeta=1" data-number="<?= $rowCont["total_faboritok"] ?>">
+                <a class="linkCategorias cont" href="<?= HREF_SRC_DIR ?>/views/gordeta/gordeta.php?gordeta=1"
+                    data-number="<?= $rowCont["total_faboritok"] ?>">
                     <div class="imagenCategoria marco1 categoriaIconos Star"><i class="fas fa-star"></i></div>
                     <h3 class="categoriasNameH3">Favoritos <i class="fas fa-star"></i></h3>
                 </a>
 
             </div>
             <div class="categoriaDiv">
-                <a class="linkCategorias cont" href="<?= HREF_SRC_DIR ?>/views/gordeta/gordeta.php?gordeta=2" data-number="<?= $rowCont["total_listangordeta"] ?>">
+                <a class="linkCategorias cont" href="<?= HREF_SRC_DIR ?>/views/gordeta/gordeta.php?gordeta=2"
+                    data-number="<?= $rowCont["total_listangordeta"] ?>">
                     <div class="imagenCategoria marco1 categoriaIconos List"><i class="fas fa-list"></i></div>
                     <h3 class="categoriasNameH3">Lista de Guardados <i class="fas fa-list"></i></h3>
                 </a>
