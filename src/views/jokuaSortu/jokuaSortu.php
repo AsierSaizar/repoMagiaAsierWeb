@@ -2,7 +2,7 @@
 
 <?php
 
-require_once ("../../required/head.php");
+require_once("../../required/head.php");
 $usuario = $_SESSION["usuario"];
 
 $editatu = false;
@@ -11,7 +11,7 @@ if (isset($_GET["jokua"])) {
     $idJuego = $_GET["jokua"];
     $editatu = true;
 
-    require_once (APP_DIR . "/src/required/functions.php");
+    require_once(APP_DIR . "/src/required/functions.php");
     $conn = connection();
     $usuario = $_SESSION["usuario"];
     $sql = "SELECT * FROM juegos WHERE idjuegos = $idJuego;";
@@ -68,7 +68,8 @@ if (isset($_GET["categoria"])) {
                     $value = "";
                 }
                 ?>
-                <textarea class="textarea-resizable form-control" id="descripcion" name="descripcion" oninput="autoResizeTextarea(this)"><?= htmlspecialchars(($editatu) ? "$value" : ""); ?>
+                <textarea class="textarea-resizable form-control" id="descripcion" name="descripcion"
+                    oninput="autoResizeTextarea(this)"><?= htmlspecialchars(($editatu) ? "$value" : ""); ?>
 </textarea>
             </div>
 
@@ -123,7 +124,7 @@ if (isset($_GET["categoria"])) {
 
 
             <?php
-            require_once (APP_DIR . "/src/required/functions.php");
+            require_once(APP_DIR . "/src/required/functions.php");
             $conn = connection();
             $usuario = $_SESSION["usuario"];
             $sql = "SELECT DISTINCT subcategoria FROM juegos;";
@@ -164,10 +165,11 @@ if (isset($_GET["categoria"])) {
                     $value = "";
                 }
                 ?>
-                <textarea class="textarea-resizable form-control" id="pasos" name="pasos" oninput="autoResizeTextarea(this)"><?= htmlspecialchars(($editatu) ? "$value" : ""); ?>
+                <textarea class="textarea-resizable form-control" id="pasos" name="pasos"
+                    oninput="autoResizeTextarea(this)"><?= htmlspecialchars(($editatu) ? "$value" : ""); ?>
 </textarea>
             </div>
-            
+
 
 
 
@@ -182,7 +184,8 @@ if (isset($_GET["categoria"])) {
                     $value = "";
                 }
                 ?>
-                <textarea class="textarea-resizable form-control" id="notas" name="notas" oninput="autoResizeTextarea(this)"><?= htmlspecialchars(($editatu) ? "$value" : ""); ?>
+                <textarea class="textarea-resizable form-control" id="notas" name="notas"
+                    oninput="autoResizeTextarea(this)"><?= htmlspecialchars(($editatu) ? "$value" : ""); ?>
 </textarea>
             </div>
 
@@ -285,7 +288,7 @@ if (isset($_GET["categoria"])) {
             allowClear: true
         });
     });
-    
+
     // Función para ajustar la altura del textarea automáticamente
     function autoResizeTextarea(el) {
         el.style.height = 'auto'; // Restablecer la altura
@@ -294,9 +297,9 @@ if (isset($_GET["categoria"])) {
     }
 
     // Aplicar la función a todos los textareas con la clase 'textarea-resizable'
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         const textareas = document.querySelectorAll('.textarea-resizable');
-        
+
         // Ajustar la altura al cargar la página
         textareas.forEach(textarea => {
             autoResizeTextarea(textarea);
@@ -304,7 +307,7 @@ if (isset($_GET["categoria"])) {
 
         // También asegurarse de que la altura cambie cuando el usuario escriba
         textareas.forEach(textarea => {
-            textarea.addEventListener('input', function() {
+            textarea.addEventListener('input', function () {
                 autoResizeTextarea(textarea);
             });
         });
@@ -312,5 +315,5 @@ if (isset($_GET["categoria"])) {
 </script>
 <?php
 
-require_once ("../../required/footer.php");
+require_once("../../required/footer.php");
 ?>

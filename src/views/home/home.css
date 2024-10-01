@@ -6,8 +6,48 @@
     font-size: 35px;
     color: white;
 }
+.TodosLosJuegos:hover{
+    text-decoration: none;
+}
 .linkCategorias:hover{
     text-decoration: none;
+}
+.linkCategorias::before{
+    content: attr(data-number);
+    position: relative !important;
+    top: 37px;
+    left: -33%;
+    font-size: 18px;
+    font-weight: bold;
+    color: #FFF;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px; /* Adjust the padding for circle size */
+    width: 30px; /* Adjust the size as needed */
+    height: 30px; /* Must be the same as width for a perfect circle */
+    border-radius: 50%; /* This creates the circular shape */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.cont::before{
+    content: attr(data-number);
+    position: relative !important;
+    top: 37px;
+    left: -33%;
+    font-size: 18px;
+    font-weight: bold;
+    color: #FFF;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px; /* Adjust the padding for circle size */
+    width: 30px; /* Adjust the size as needed */
+    height: 30px; /* Must be the same as width for a perfect circle */
+    border-radius: 50%; /* This creates the circular shape */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
 }
 .categoriaDiv, .imagenCategoria{
     border-radius: 10px; /* Bordes redondeados */
