@@ -209,12 +209,14 @@ if ($existe) {
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
+            $gameNumber = 0;
             while ($row = $result->fetch_assoc()) {
                 $juego = $row["juegosName"];
                 $idJuego = $row["idjuegos"];
+                $gameNumber ++;
                 ?>
                 <center>
-                    <a href='<?= HREF_VIEWS_DIR ?>/juego/juego.php?juego=<?= $idJuego ?>' class='juegosDiv marco1'>
+                    <a href='<?= HREF_VIEWS_DIR ?>/juego/juego.php?juego=<?= $idJuego ?>' class='juegosDiv marco1 ' data-number="<?= $gameNumber ?>">
                         <b>
                             <div class="trucosName"><?= $juego ?></div>
                             <div class="trucosSubCat"><?= $row["subcategoria"] ?></div>

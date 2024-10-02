@@ -185,11 +185,35 @@ form {
     align-items: center;
     background-color: #686868; /* Color de fondo */
     transition: transform 0.2s; /* Animación para el hover */
+    position: relative; /* Needed for positioning the number */
+}
+
+.juegosDiv::before {
+    content: attr(data-number);
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #FFF;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px; /* Adjust the padding for circle size */
+    width: 30px; /* Adjust the size as needed */
+    height: 30px; /* Must be the same as width for a perfect circle */
+    border-radius: 50%; /* This creates the circular shape */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 .juegosDiv:hover {
     transform: scale(1.05); /* Efecto de agrandar al pasar el cursor */
     text-decoration: none;
 }
+
+
+
+
 .trucosSubCat{
     color: rgb(223, 223, 223);
 }

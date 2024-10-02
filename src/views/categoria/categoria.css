@@ -28,7 +28,6 @@
     align-items: center;
     background-color: #686868; /* Color de fondo */
     transition: transform 0.2s; /* Animación para el hover */
-    position: relative; /* Needed for positioning the number */
 }
 .juegosDiv::before {
     content: attr(data-number);
