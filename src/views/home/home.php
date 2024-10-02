@@ -43,8 +43,8 @@ $usuario = $_SESSION["usuario"];
             $sqlCont = "SELECT 
     SUM(CASE WHEN categoria = 1 THEN 1 ELSE 0 END) AS Cartomagia,
     SUM(CASE WHEN categoria = 2 THEN 1 ELSE 0 END) AS Numismagia,
-    SUM(CASE WHEN categoria = 3 THEN 1 ELSE 0 END) AS Mentalismo,
-    SUM(CASE WHEN categoria = 4 THEN 1 ELSE 0 END) AS Cuerdas,
+    SUM(CASE WHEN categoria = 3 THEN 1 ELSE 0 END) AS Cuerdas,
+    SUM(CASE WHEN categoria = 4 THEN 1 ELSE 0 END) AS Mentalismo,
 
     (SELECT COUNT(*) FROM diarioMagico.juegos WHERE $usuario = 1 AND idjuegos IN (
 		SELECT idJokua 
