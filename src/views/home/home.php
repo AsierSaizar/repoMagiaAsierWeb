@@ -35,6 +35,12 @@ $usuario = $_SESSION["usuario"];
                 </div>
 
             </a>
+            <a class="TodosLosJuegos" href="<?= HREF_SRC_DIR ?>/views/listak/listak.php">
+                <div class=" marco2 categoriaIconos ">
+                    <h3 class="categoriasNameH3">Listas</h3>
+                </div>
+
+            </a>
         </div>
         <br><br>
         <div class="categorias">
