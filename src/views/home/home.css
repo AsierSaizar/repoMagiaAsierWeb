@@ -66,6 +66,7 @@
     font-size: 175px;
     color: white;
     height: 8%;
+    min-height: 100px;
     border-radius: 15px;
     background-color: #686868; /* Color de fondo */
     transition: color 1s; /* Animación para el hover */
