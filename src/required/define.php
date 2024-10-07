@@ -1,11 +1,14 @@
 <?php
 
-//Asier
-//define('APP_DIR', $_SERVER['DOCUMENT_ROOT'] . '/Desktop/repertorioMagia/'); //Aplikazioaren karpeta edozein lekutatik atzitzeko.
-//define('HREF_VIEWS_DIR', '/Desktop/repertorioMagia/src/views'); //Aplikazioaren views karpeta edozein lekutatik deitzeko
-//define('HREF_SRC_DIR', '/Desktop/repertorioMagia/src'); //Aplikazioaren views karpeta edozein lekutatik deitzeko
-
-//Ubuntu raspberry PI
-define('APP_DIR', $_SERVER['DOCUMENT_ROOT'] . ''); //Aplikazioaren karpeta edozein lekutatik atzitzeko.
-define('HREF_VIEWS_DIR', '/src/views'); //Aplikazioaren views karpeta edozein lekutatik deitzeko
-define('HREF_SRC_DIR', '/src'); //Aplikazioaren views karpeta edozein lekutatik deitzeko
+// Detectar si estás en el entorno local o en el Raspberry Pi
+if ($_SERVER['HTTP_HOST'] === 'localhost') {
+    // Local
+    define('APP_DIR', $_SERVER['DOCUMENT_ROOT'] . '/Desktop/repertorioMagia/');
+    define('HREF_VIEWS_DIR', '/Desktop/repertorioMagia/src/views');
+    define('HREF_SRC_DIR', '/Desktop/repertorioMagia/src');
+} else {
+    // Raspberry Pi (Ubuntu)
+    define('APP_DIR', $_SERVER['DOCUMENT_ROOT'] . '');
+    define('HREF_VIEWS_DIR', '/src/views');
+    define('HREF_SRC_DIR', '/src');
+}
