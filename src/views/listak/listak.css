@@ -47,15 +47,3 @@
   color: rgb(255, 240, 104); /* Color de texto cambia con el borde */
 }
 
-/* Ajustes responsivos para pantallas más pequeñas */
-@media (max-width: 768px) {
-  .container_Listak {
-    grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas medianas */
-  }
-}
-
-@media (max-width: 480px) {
-  .container_Listak {
-    grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
-  }
-}
