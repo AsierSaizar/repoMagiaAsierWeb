@@ -57,7 +57,7 @@
             <!-- SIDE BARRANTZAT DA HAUUU //////////////////-->
 
             <div class="tagline">
-                <span> El Diario Magico</span>
+                <a class="WebIzenBurua" href="<?= HREF_VIEWS_DIR ?>/home/home.php"><span> El Diario Magico</span></a>
             </div>
             <div class="logo">
                 <a href="<?= HREF_VIEWS_DIR ?>/home/home.php">

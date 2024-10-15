@@ -9,8 +9,8 @@
 
 /* Tarjetas con estilo de sobresalir */
 .div_lista {
-  width: 400px;
-  height: 300px;
+  width: 80%;
+  height: 230px;
   background-color: #414141;
   border-radius: 20px; /* Bordes redondeados */
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), 0 6px 6px rgba(0, 0, 0, 0.2);

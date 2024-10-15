@@ -33,7 +33,14 @@ body{
     align-items: center;
 }
 
-
+.WebIzenBurua{
+    text-decoration: none;
+    color: white;
+}
+.WebIzenBurua:hover{
+    text-decoration: none;
+    color: white;
+}
 
 /* Estilo del campo de búsqueda (textbox) */
 .search-field {
