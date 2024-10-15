@@ -22,11 +22,11 @@ require_once(APP_DIR . "/src/required/functions.php");
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             ?>
-            <div class="div_lista">
+            <a href="<?= HREF_SRC_DIR ?>/views/listak/lista_joku.php?lista=<?=$row['id'] ?> " class="div_lista">
                 <div class="div-izena">
-                    <?=$row['izena']; ?> 
+                    <?=$row['izena'] ?> 
                 </div>
-            </div>
+            </a>
             <?php
         }
     }

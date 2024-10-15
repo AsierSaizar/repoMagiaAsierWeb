@@ -79,12 +79,12 @@
     height: 8%;
     min-height: 100px;
     border-radius: 15px;
-    background-color: #686868; /* Color de fondo */
-    transition: color 1s; /* Animación para el hover */
+    background-color: #484848; /* Color de fondo */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
 }
 .categoriaIconos:hover{
-    background-color: #969696; /* Color de fondo */
-    transition: transform 0.2s; /* Animación para el hover */
+    background-color: #505050; /* Color de fondo */
+    transform: translateY(-10px); /* Efecto de elevar la tarjeta */
 }
 .Star:hover{
     color: rgb(255, 240, 104);

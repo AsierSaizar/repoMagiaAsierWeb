@@ -26,6 +26,7 @@
   transform: translateY(-10px); /* Efecto de elevar la tarjeta */
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6), 0 10px 10px rgba(0, 0, 0, 0.3);
   border: 4px solid rgb(255, 240, 104); /* Borde amarillo al hacer hover */
+  text-decoration: none;
 }
 
 /* Texto centrado y con estilo */

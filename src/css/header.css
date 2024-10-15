@@ -235,11 +235,11 @@ body{
     height: 300px;
     width: 80%;
     border: 1px solid;
-    border-color: rgb(233, 233, 233);
+    border-color: #333;
     text-decoration: none;
     
     border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra para darle profundidad */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), 0 6px 6px rgba(0, 0, 0, 0.2);
 }
 
 .marco1:hover{
@@ -248,8 +248,10 @@ body{
 
 .marco2{
     border: 1px solid;
-    border-color: rgb(233, 233, 233);
+    border-color: #333;
     text-decoration: none;
+    
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), 0 6px 6px rgba(0, 0, 0, 0.2);
 }
 .marco2:hover{
     border: 3px solid rgb(255, 240, 104);
@@ -275,14 +277,16 @@ body{
 
 
 .juegosDiv {
-    border: 1px solid #ccc; /* Borde para visualización */
+    border: 1px solid #333; /* Borde para visualización */
     margin: 10px;
     display: grid;
     justify-content: center;
     align-items: center;
-    background-color: #686868; /* Color de fondo */
+    background-color: #414141; /* Color de fondo */
     transition: transform 0.2s; /* Animación para el hover */
     position: relative; /* Needed for positioning the number */
+    
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), 0 6px 6px rgba(0, 0, 0, 0.2);
 }
 .juegosDiv::before {
     content: attr(data-number);
