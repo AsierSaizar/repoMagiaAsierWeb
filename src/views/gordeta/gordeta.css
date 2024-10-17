@@ -1,66 +1,67 @@
 /* Estilos para la tabla */
-.containerGordetaLista{
-    
+.containerGordetaLista {
+
     padding: 30px;
 }
+
 .table-container {
     width: 100%;
-    overflow-x: auto; /* Permitir desplazamiento horizontal */
-    margin: 20px auto; /* Margen exterior */
-    border: 1px solid #ffffff; /* Borde blanco */
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    background-color: #333333; /* Fondo gris oscuro */
-    color: #ffffff; /* Texto blanco */
+    overflow-x: auto;
+    /* Permitir desplazamiento horizontal */
+    margin: 20px auto;
+    /* Margen exterior */
+    border: 1px solid #ffffff;
+    /* Borde blanco */
+    border-radius: 8px;
+    /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Sombra ligera */
+    background-color: #333333;
+    /* Fondo gris oscuro */
+    color: #ffffff;
+    /* Texto blanco */
 }
 
 .styled-table {
     width: 100%;
-    border-collapse: collapse; /* Colapsar los bordes de la tabla */
-    background-color: #333333; /* Fondo gris oscuro */
-    color: #ffffff; /* Texto blanco */
+    border-collapse: collapse;
+    /* Colapsar los bordes de la tabla */
+    background-color: #333333;
+    /* Fondo gris oscuro */
+    color: #ffffff;
+    /* Texto blanco */
 }
 
-.styled-table th, .styled-table td {
-    padding: 12px 15px; /* Padding interno */
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+    /* Padding interno */
     text-align: left;
-    border-bottom: 1px solid #ffffff; /* Borde inferior blanco */
+    border-bottom: 1px solid #ffffff;
+    /* Borde inferior blanco */
 }
 
 .styled-table th {
-    background-color: rgb(255, 240, 104); /* Color de fondo verde para encabezados */
-    font-weight: bold; /* Negrita */
+    background-color: rgb(255, 240, 104);
+    /* Color de fondo verde para encabezados */
+    font-weight: bold;
+    /* Negrita */
     color: #535353;
 }
 
 .styled-table td {
-    background-color: #444444; /* Color de fondo gris oscuro */
+    background-color: #444444;
+    /* Color de fondo gris oscuro */
 }
 
 .styled-table tr:nth-child(even) td {
-    background-color: #3c3c3c; /* Color de fondo gris más oscuro para filas pares */
+    background-color: #3c3c3c;
+    /* Color de fondo gris más oscuro para filas pares */
 }
 
 .styled-table tr:hover {
-    background-color: #555555; /* Color de fondo gris al pasar el ratón */
-}
-
-.delete-button {
-    background-color: #f44336; /* Color de fondo rojo para botón de eliminar */
-    color: #ffffff; /* Texto blanco */
-    border: none; /* Sin borde */
-    padding: 8px 12px; /* Padding interno */
-    cursor: pointer; /* Cursor de tipo puntero */
-    border-radius: 4px; /* Bordes redondeados */
-    transition: background-color 0.3s; /* Transición suave del color de fondo */
-}
-
-.delete-button:hover {
-    background-color: #d32f2f; /* Color de fondo rojo más oscuro al pasar el ratón */
-}
-
-.delete-button i {
-    margin-right: 5px; /* Margen a la derecha del icono */
+    background-color: #555555;
+    /* Color de fondo gris al pasar el ratón */
 }
 
 
@@ -72,23 +73,35 @@ form {
     display: flex;
     width: fit-content;
     align-items: center;
-    gap: 10px; /* Espacio entre elementos */
-    background-color: #969696; /* Fondo del formulario */
-    padding: 10px; /* Espaciado interno del formulario */
-    border-radius: 5px; /* Bordes redondeados */
+    gap: 10px;
+    /* Espacio entre elementos */
+    background-color: #969696;
+    /* Fondo del formulario */
+    padding: 10px;
+    /* Espaciado interno del formulario */
+    border-radius: 5px;
+    /* Bordes redondeados */
     border: 2px solid rgb(255, 240, 104);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra del formulario */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Sombra del formulario */
 }
 
 /* Estilos para el select */
 #catFiltro {
-    padding: 8px; /* Espaciado interno del select */
-    border: 1px solid #ccc; /* Borde del select */
-    border-radius: 5px; /* Bordes redondeados */
-    font-size: 16px; /* Tamaño de fuente */
-    background-color: #fff; /* Fondo del select */
-    color: #333; /* Color del texto */
-    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    padding: 8px;
+    /* Espaciado interno del select */
+    border: 1px solid #ccc;
+    /* Borde del select */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    font-size: 16px;
+    /* Tamaño de fuente */
+    background-color: #fff;
+    /* Fondo del select */
+    color: #333;
+    /* Color del texto */
+    cursor: pointer;
+    /* Cambia el cursor al pasar por encima */
 }
 
 /* Estilos para el botón */
@@ -96,14 +109,22 @@ form {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 8px 12px; /* Espaciado interno del botón */
-    background-color: transparent; /* Color de fondo del botón */
-    border: none; /* Sin borde */
-    border-radius: 25%; /* Bordes redondeados */
-    color: #ffffff; /* Color del texto */
-    font-size: 16px; /* Tamaño de fuente */
-    cursor: pointer; /* Cambia el cursor al pasar por encima */
-    transition: font-size 0.1s; /* Transición para el efecto hover */
+    padding: 8px 12px;
+    /* Espaciado interno del botón */
+    background-color: transparent;
+    /* Color de fondo del botón */
+    border: none;
+    /* Sin borde */
+    border-radius: 25%;
+    /* Bordes redondeados */
+    color: #ffffff;
+    /* Color del texto */
+    font-size: 16px;
+    /* Tamaño de fuente */
+    cursor: pointer;
+    /* Cambia el cursor al pasar por encima */
+    transition: font-size 0.1s;
+    /* Transición para el efecto hover */
 }
 
 .search-buttonFiltro:hover {
@@ -113,7 +134,8 @@ form {
 
 /* Estilos para el icono dentro del botón */
 .search-buttonFiltro i {
-    margin-right: 5px; /* Espacio entre el icono y el texto */
+    margin-right: 5px;
+    /* Espacio entre el icono y el texto */
 }
 
 
@@ -138,7 +160,7 @@ form {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.modoVista input[type="radio"]:checked + label {
+.modoVista input[type="radio"]:checked+label {
     background-color: rgb(255, 240, 104);
     color: #333;
     border: 2px solid rgb(255, 239, 90);
@@ -151,11 +173,13 @@ form {
 
 .containerGordetaLista,
 .containerGordetaBox {
-    display: none; /* Hide both divs initially */
+    display: none;
+    /* Hide both divs initially */
 }
+
 /* BOX VISTAAA CSSSSSSSSSSSSSSSSS */
 @media only screen and (max-width: 1000px) {
-    .containerGordetaBox{
+    .containerGordetaBox {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
     }
@@ -163,7 +187,7 @@ form {
 
 /* Estilos específicos para pantallas de ordenador */
 @media only screen and (min-width: 1001px) {
-    .containerGordetaBox{
+    .containerGordetaBox {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
     }
@@ -176,5 +200,33 @@ form {
     color: #fff;
     font-size: 30px;
     cursor: pointer;
-    margin: 0 5px; /* Espaciado entre los botones */
+    margin: 0 5px;
+    /* Espaciado entre los botones */
+}
+
+.delete-button {
+    background-color: #f44336;
+    /* Color de fondo rojo para botón de eliminar */
+    color: #ffffff;
+    /* Texto blanco */
+    border: none;
+    /* Sin borde */
+    padding: 8px 12px;
+    /* Padding interno */
+    cursor: pointer;
+    /* Cursor de tipo puntero */
+    border-radius: 4px;
+    /* Bordes redondeados */
+    transition: background-color 0.3s;
+    /* Transición suave del color de fondo */
+}
+
+.delete-button:hover {
+    background-color: #d32f2f;
+    /* Color de fondo rojo más oscuro al pasar el ratón */
+}
+
+.delete-button i {
+    margin-right: 5px;
+    /* Margen a la derecha del icono */
 }

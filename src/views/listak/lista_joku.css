@@ -1,0 +1,52 @@
+/* BOX VISTAAA CSSSSSSSSSSSSSSSSS */
+@media only screen and (max-width: 1000px) {
+    .container_Listak {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Estilos específicos para pantallas de ordenador */
+@media only screen and (min-width: 1001px) {
+    .container_Listak {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.iconButton {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+    margin: 0 5px;
+    /* Espaciado entre los botones */
+}
+
+.delete-button_Lista {
+    background-color: #f44336;
+    /* Color de fondo rojo para botón de eliminar */
+    color: #ffffff;
+    /* Texto blanco */
+    border: none;
+    /* Sin borde */
+    padding: 8px 12px;
+    /* Padding interno */
+    cursor: pointer;
+    /* Cursor de tipo puntero */
+    border-radius: 4px;
+    /* Bordes redondeados */
+    transition: background-color 0.3s;
+    /* Transición suave del color de fondo */
+}
+
+.delete-button_Lista:hover {
+    background-color: #d32f2f;
+    /* Color de fondo rojo más oscuro al pasar el ratón */
+}
+
+.delete-button_Lista i {
+    margin-right: 5px;
+    /* Margen a la derecha del icono */
+}
