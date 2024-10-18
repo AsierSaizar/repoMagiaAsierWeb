@@ -100,8 +100,6 @@ $(document).ready(function () {
 
     if (asierUsu == 0 && benatUsu == 0) {
       alert("Pon un nombre");
-    } else if (asierUsu == 0 && benatUsu == 0) {
-      alert("Elige un usuario");
     } else {
       $.ajax({
         type: "POST",

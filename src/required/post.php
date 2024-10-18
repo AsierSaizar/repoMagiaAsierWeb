@@ -308,6 +308,21 @@ if (isset($_POST["action"])) {
 
 
             $conn->close();
+        }case "añadirLista": {
+            $listaIzena = $_POST["listaIzena"];
+            $asierUsu = $_POST["asierUsu"];
+            $benatUsu = $_POST["benatUsu"];
+
+
+            require_once ("functions.php");
+
+            $conn = connection();
+            $stmt = $conn->prepare("INSERT INTO lista (izena, Asier, Benat) VALUES (?, ?, ?)");
+            $stmt->bind_param("sss", $listaIzena, $asierUsu, $benatUsu);
+            
+            $stmt->execute();
+            $conn->close();
+            break;
         }
     }
 } else {

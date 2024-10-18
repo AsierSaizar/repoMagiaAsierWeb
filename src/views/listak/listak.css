@@ -47,3 +47,127 @@
   color: rgb(255, 240, 104); /* Color de texto cambia con el borde */
 }
 
+
+.crearNuevaLista{
+  font-size: 175px;
+  margin: 5%;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border: 0px;
+  background-color: transparent;
+  color: #ffffff;
+  transition: font-size 0.3s;
+}
+.crearNuevaLista:hover{
+  font-size: 200px;
+  text-decoration: none;
+  color: rgb(255, 240, 104);
+}
+
+
+
+
+/* Estilos para el modal */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  background-color: rgba(0,0,0,0.8); /* Fondo oscuro con opacidad */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenido del modal */
+.modal_content {
+  background-color: #2c2f33; /* Color oscuro para el fondo del modal */
+  padding: 20px;
+  margin-top: 10%;
+  border-radius: 10px;
+  width: 40%; /* No ocupar todo el ancho */
+  max-width: 500px; /* Limitar el ancho en pantallas grandes */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: #f5f5f5; /* Texto en color claro */
+  text-align: center;
+}
+
+/* Botón de cerrar */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #f5f5f5;
+  text-decoration: none;
+}
+
+/* Estilo para los inputs */
+input[type="text"], input[type="submit"] {
+  width: 100%; /* Que los inputs ocupen todo el ancho del formulario */
+  padding: 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Estilo específico para los inputs de texto */
+input[type="text"] {
+  background-color: #40444b; /* Fondo oscuro para los inputs */
+  color: #f5f5f5; /* Texto blanco */
+  border: 1px solid #666; /* Borde sutil */
+}
+
+/* Cambiar el color de borde en foco */
+input[type="text"]:focus {
+  border: 1px solid #7289da; /* Borde azul en foco */
+  outline: none;
+}
+
+/* Estilo para el botón */
+#crearListaBtn {
+  background-color: rgb(249, 228, 41); /* Color del botón */
+  color: white;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  margin-top: 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+#crearListaBtn:hover {
+  background-color: rgb(213, 198, 63); /* Cambio de color en hover */
+}
+
+/* Para títulos y etiquetas */
+h2 {
+  color: #f5f5f5;
+  margin-bottom: 20px;
+}
+
+label {
+  text-align: left;
+  display: block;
+  margin-bottom: 5px;
+  color: #f5f5f5;
+}
+
+/* Asegura que los textos sean bien visibles */
+body {
+  font-family: Arial, sans-serif;
+  color: white;
+  background-color: #23272a; /* Fondo oscuro de la página */
+}
